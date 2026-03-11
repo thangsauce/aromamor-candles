@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { StoreProvider } from "./store/StoreContext";
 import ShopPage from "./pages/ShopPage";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -13,7 +13,7 @@ import "./styles/globals.css";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <StoreProvider>
         <Routes>
           <Route path="/" element={<ShopPage />} />
@@ -29,6 +29,6 @@ export default function App() {
         <WishlistDrawer />
         <Toast />
       </StoreProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
