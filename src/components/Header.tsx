@@ -27,7 +27,8 @@ export default function Header({ subtitle = "Hand-poured • Travel-inspired sce
       <div className="wrap nav">
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <Link className="brand" to="/">
-              <img src="/logo.png" alt="Aromamor logo" style={{ width: 80, height: 80, borderRadius: 16, objectFit: "cover" }} />            <div>
+              <img src="./logo.png" alt="Aromamor logo" style={{ width: 80, height: 80, borderRadius: 16, objectFit: "cover" }} />            
+            <div>
               <h1>Aromamor</h1>
               <p className="subtitle">{subtitle}</p>
             </div>

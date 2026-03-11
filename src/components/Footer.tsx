@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="wrap footer-inner">
         <div className="footer-brand">
-            <img src="/logo.png" alt="Aromamor logo" style={{ width: 64, height: 64, borderRadius: 16, objectFit: "cover" }} />          <div>
+            <img src="./logo.png" alt="Aromamor logo" style={{ width: 64, height: 64, borderRadius: 16, objectFit: "cover" }} />          <div>
             <div className="footer-brand-name">Aromamor</div>
             <p className="muted tiny">Hand-poured • Travel-inspired scents</p>
           </div>
