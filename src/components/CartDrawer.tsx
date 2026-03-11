@@ -54,7 +54,7 @@ export default function CartDrawer() {
                       </button>
                     </div>
                     <div className="sub">
-                      Line: <b>{money(p.price * item.qty)}</b>
+                      Price: <b>{money(p.price * item.qty)}</b>
                     </div>
                   </div>
                 </li>

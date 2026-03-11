@@ -34,7 +34,7 @@ export default function Header({ subtitle = "Hand-poured • Travel-inspired sce
             </div>
           </Link>
           <Link className="btn" to="/about">
-            About
+            About Us
           </Link>
         </div>
 
@@ -51,7 +51,7 @@ export default function Header({ subtitle = "Hand-poured • Travel-inspired sce
           </button>
 
           <button className="btn primary cart-btn" onClick={openCart} type="button">
-            Cart <span className="badge">{totalQty}</span>
+            <i className="bi bi-cart" /> <span className="badge">{totalQty}</span>
           </button>
 
           <button
