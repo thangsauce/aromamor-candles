@@ -10,6 +10,7 @@ import CartDrawer from "./components/CartDrawer";
 import WishlistDrawer from "./components/WishlistDrawer";
 import Overlay from "./components/Overlay";
 import Toast from "./components/Toast";
+import ThemeToggle from "./components/ThemeToggle";
 import "./styles/globals.css";
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
           <CartDrawer />
           <WishlistDrawer />
           <Toast />
+          <ThemeToggle />
         </StoreProvider>
       </HashRouter>
     </ThemeProvider>

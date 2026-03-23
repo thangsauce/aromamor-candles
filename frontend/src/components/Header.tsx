@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "../store/StoreContext";
-import { useTheme } from "../store/ThemeContext";
 
 interface HeaderProps {
   subtitle?: string;
@@ -9,7 +8,6 @@ interface HeaderProps {
 
 export default function Header({ subtitle = "Hand-poured • Travel-inspired scents" }: HeaderProps) {
   const { totalQty, wishlist, setCartOpen, setWishlistOpen, hideToast } = useStore();
-  const { theme, toggle } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const openCart = () => { hideToast(); setCartOpen(true); setMobileOpen(false); };
@@ -71,16 +69,6 @@ export default function Header({ subtitle = "Hand-poured • Travel-inspired sce
             )}
           </button>
 
-          {/* Theme toggle */}
-          <button
-            className="px-3 py-2 rounded-lg text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
-            onClick={toggle}
-            type="button"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? "☀️" : "🌙"}
-          </button>
-
           {/* Hamburger — mobile */}
           <button
             className="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded-lg text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition"
@@ -106,9 +94,6 @@ export default function Header({ subtitle = "Hand-poured • Travel-inspired sce
           <button className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-left flex items-center justify-between" onClick={openWishlist} type="button">
             ❤️ Wishlist
             {wishlist.length > 0 && <span className="text-xs bg-brand-accent dark:bg-brand-accent-dark text-white px-1.5 py-0.5 rounded-full">{wishlist.length}</span>}
-          </button>
-          <button className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-left" onClick={toggle} type="button">
-            {theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
           </button>
         </div>
       )}
