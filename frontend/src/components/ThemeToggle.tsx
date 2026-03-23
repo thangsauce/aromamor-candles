@@ -54,11 +54,6 @@ export default function ThemeToggle() {
         </svg>
       </span>
 
-      {/* Label */}
-      <span className="text-xs font-semibold tracking-wide">
-        {isDark ? "Dark" : "Light"}
-      </span>
-
       {/* Animated pill indicator */}
       <span className={`w-7 h-4 rounded-full flex items-center transition-colors duration-300 px-0.5 ${isDark ? "bg-brand-accent-dark/30" : "bg-brand-accent/20"}`}>
         <span

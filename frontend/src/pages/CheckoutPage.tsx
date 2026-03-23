@@ -55,10 +55,10 @@ export default function CheckoutPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header subtitle="Checkout" />
+      <Header />
       <main className="flex-1 max-w-[1100px] mx-auto px-4 py-10 w-full">
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold text-brand-text dark:text-brand-text-dark">Checkout</h1>
+          <h1 className="text-4xl text-brand-text dark:text-brand-text-dark" style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}>Checkout</h1>
           <p className="text-sm text-brand-muted dark:text-brand-muted-dark mt-1">Review your order and enter your details</p>
         </div>
 

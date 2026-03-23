@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 /*
@@ -8,7 +9,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brand-bg: #faf8f4;
+  --color-brand-bg: #faf7f2;
   --color-brand-bg-dark: #0f0f12;
   --color-brand-card: #ffffff;
   --color-brand-card-dark: #17171d;
@@ -20,9 +21,17 @@
   --color-brand-accent-dark: #ffd27d;
   --color-brand-line: #e8e0d4;
   --color-brand-line-dark: #2a2a35;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', system-ui, sans-serif;
 }
 
 body {
   @apply bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark;
   @apply min-h-screen antialiased;
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
 }

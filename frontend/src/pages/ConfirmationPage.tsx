@@ -28,15 +28,18 @@ export default function ConfirmationPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header subtitle="Order Confirmed" />
+      <Header />
       <main className="flex-1 max-w-[640px] mx-auto px-4 py-12 w-full flex flex-col gap-6">
 
         {/* Hero */}
         <div className="flex flex-col items-center text-center gap-3 pb-4">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-100 to-stone-200 dark:from-amber-900/40 dark:to-stone-800 flex items-center justify-center text-3xl">
-            ✈️
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-100 to-stone-200 dark:from-amber-900/40 dark:to-stone-800 flex items-center justify-center border border-brand-line dark:border-brand-line-dark">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-brand-accent dark:text-brand-accent-dark">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
           </div>
-          <h1 className="text-2xl font-semibold text-brand-text dark:text-brand-text-dark">Your order is on its way!</h1>
+          <h1 className="text-3xl text-brand-text dark:text-brand-text-dark" style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}>Your order is on its way!</h1>
           <p className="text-brand-muted dark:text-brand-muted-dark">
             Thanks for shopping at Aromamor. You'll receive a confirmation email shortly.
           </p>
