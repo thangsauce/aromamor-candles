@@ -6,7 +6,7 @@ export default function Overlay() {
 
   return (
     <div
-      className={`overlay${isOpen ? " open" : ""}`}
+      className={`fixed inset-0 z-30 bg-black/50 transition-opacity duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       onClick={() => {
         if (wishlistOpen) setWishlistOpen(false);
         else setCartOpen(false);
