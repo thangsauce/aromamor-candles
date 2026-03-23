@@ -7,6 +7,7 @@ export interface Product {
   price: number;
   inStock: boolean;
   tag: string;
+  image?: string;
 }
 
 export interface CartItem {

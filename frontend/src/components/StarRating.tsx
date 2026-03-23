@@ -16,20 +16,15 @@ export default function StarRating({
   const stars = Array.from({ length: max }, (_, i) => i + 1);
 
   return (
-    <span style={{ display: "inline-flex", gap: 2, alignItems: "center" }}>
+    <span className="inline-flex gap-0.5 items-center">
       {stars.map((star) => {
         const filled = star <= Math.round(rating);
         return (
           <span
             key={star}
             onClick={() => interactive && onChange?.(star)}
-            style={{
-              fontSize: size,
-              color: filled ? "#ffd27d" : "rgba(184,184,194,0.3)",
-              cursor: interactive ? "pointer" : "default",
-              transition: "color 0.1s",
-              lineHeight: 1,
-            }}
+            style={{ fontSize: size, lineHeight: 1 }}
+            className={`${filled ? "text-brand-accent-dark" : "text-brand-muted/30 dark:text-brand-muted-dark/30"} ${interactive ? "cursor-pointer" : "cursor-default"} transition-colors`}
             title={interactive ? `${star} star${star !== 1 ? "s" : ""}` : undefined}
           >
             ★
