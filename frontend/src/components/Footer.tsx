@@ -2,46 +2,56 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="wrap footer-inner">
-        <div className="footer-brand">
-          <img src="./logo.png" alt="Aromamor logo" style={{ width: 64, height: 64, borderRadius: 16, objectFit: "cover" }} />
-          <div>
-            <div className="footer-brand-name">Aromamor</div>
-            <p className="muted tiny">Hand-poured • Travel-inspired scents</p>
+    <footer className="bg-brand-card dark:bg-brand-card-dark border-t border-brand-line dark:border-brand-line-dark mt-auto">
+      <div className="max-w-[1200px] mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Col 1: Brand */}
+        <div className="flex flex-col gap-3 md:col-span-1">
+          <div className="flex items-center gap-2.5">
+            <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Aromamor logo" className="w-9 h-9 rounded-xl object-cover" />
+            <span
+              className="text-lg text-brand-text dark:text-brand-text-dark"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
+            >
+              Aromamor
+            </span>
           </div>
+          <p className="text-xs text-brand-muted dark:text-brand-muted-dark leading-relaxed">
+            Hand-poured · Travel-inspired scents
+          </p>
         </div>
 
-        <div className="footer-links">
-          <div className="footer-col">
-            <div className="footer-col-title">Shop</div>
-            <Link to="/#collection">All Candles</Link>
-            <Link to="/#collection">New Arrivals</Link>
-            <Link to="/#collection">Bestsellers</Link>
-            <Link to="/reviews">⭐ Reviews</Link>
-          </div>
-          <div className="footer-col">
-            <div className="footer-col-title">Info</div>
-            <Link to="/about">About Us</Link>
-            <a href="#">Shipping &amp; Returns</a>
-            <a href="#">Candle Care</a>
-            <a href="#">FAQ</a>
-          </div>
-          <div className="footer-col">
-            <div className="footer-col-title">Contact</div>
-            <a href="mailto:ImAmunch@ucf.edu">ImAmunch@ucf.edu</a>
-            <a href="#">Instagram</a>
-            <a href="#">TikTok</a>
-          </div>
+        {/* Col 2: Shop */}
+        <div className="flex flex-col gap-3">
+          <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Shop</div>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/#collection">All Candles</Link>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/#collection">Essential Oils</Link>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/#collection">Gift Sets</Link>
+        </div>
+
+        {/* Col 3: Support */}
+        <div className="flex flex-col gap-3">
+          <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Support</div>
+          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">FAQ</a>
+          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Shipping &amp; Returns</a>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/about">About Us</Link>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/reviews">Reviews</Link>
+        </div>
+
+        {/* Col 4: Contact */}
+        <div className="flex flex-col gap-3">
+          <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Contact</div>
+          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="mailto:ImAmunch@ucf.edu">ImAmunch@ucf.edu</a>
+          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Instagram</a>
+          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">TikTok</a>
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <div className="wrap">
-          <p className="muted tiny">© 2026 Aromamor. All rights reserved.</p>
-          <div className="footer-bottom-links">
-            <a href="#" className="muted tiny">Privacy Policy</a>
-            <a href="#" className="muted tiny">Terms of Service</a>
+      <div className="border-t border-brand-line dark:border-brand-line-dark">
+        <div className="max-w-[1200px] mx-auto px-6 py-4 flex flex-wrap justify-between gap-2">
+          <p className="text-xs text-brand-muted dark:text-brand-muted-dark">© 2026 Aromamor. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a className="text-xs text-brand-muted dark:text-brand-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Privacy Policy</a>
+            <a className="text-xs text-brand-muted dark:text-brand-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Terms of Service</a>
           </div>
         </div>
       </div>

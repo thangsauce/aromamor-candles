@@ -2,109 +2,119 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useStore } from "../store/StoreContext";
 
-interface HeaderProps {
-  subtitle?: string;
-}
-
-export default function Header({ subtitle = "Hand-poured • Travel-inspired scents" }: HeaderProps) {
+export default function Header() {
   const { totalQty, wishlist, setCartOpen, setWishlistOpen, hideToast } = useStore();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const openCart = () => {
-    hideToast();
-    setCartOpen(true);
-    setMobileOpen(false);
-  };
-
-  const openWishlist = () => {
-    hideToast();
-    setWishlistOpen(true);
-    setMobileOpen(false);
-  };
+  const openCart = () => { hideToast(); setCartOpen(true); setMobileOpen(false); };
+  const openWishlist = () => { hideToast(); setWishlistOpen(true); setMobileOpen(false); };
 
   return (
-    <header className="site-header">
-      <div className="wrap nav">
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <Link className="brand" to="/">
-              <img src="./logo.png" alt="Aromamor logo" style={{ width: 80, height: 80, borderRadius: 16, objectFit: "cover" }} />            
-            <div>
-              <h1>Aromamor</h1>
-              <p className="subtitle">{subtitle}</p>
-            </div>
-          </Link>
-          <Link className="btn" to="/about">
-            About Us
-          </Link>
-        </div>
+    <header className="sticky top-0 z-20 w-full bg-brand-bg/95 dark:bg-brand-bg-dark/95 backdrop-blur-md border-b border-brand-line dark:border-brand-line-dark">
+      <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between gap-6">
 
-        <div className="header-actions">
-          <Link className="btn desktop-only" to="/#collection">
+        {/* Brand */}
+        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 no-underline">
+          <img
+            src={`${import.meta.env.BASE_URL}logo.png`}
+            alt="Aromamor logo"
+            className="w-9 h-9 rounded-xl object-cover"
+          />
+          <span
+            className="text-lg text-brand-text dark:text-brand-text-dark tracking-wide"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 600 }}
+          >
+            Aromamor
+          </span>
+        </Link>
+
+        {/* Center nav — desktop */}
+        <nav className="hidden md:flex items-center text-sm text-brand-muted dark:text-brand-muted-dark">
+          <Link
+            to="/#collection"
+            className="px-3 py-1.5 text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
+          >
             Shop
           </Link>
-          <Link className="btn desktop-only" to="/reviews">
-            ⭐ Reviews
+          <span className="text-brand-line dark:text-brand-line-dark select-none">|</span>
+          <Link
+            to="/about"
+            className="px-3 py-1.5 text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
+          >
+            About Us
           </Link>
+          <span className="text-brand-line dark:text-brand-line-dark select-none">|</span>
+          <Link
+            to="/reviews"
+            className="px-3 py-1.5 text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
+          >
+            Reviews
+          </Link>
+        </nav>
 
-          <button className="btn desktop-only" onClick={openWishlist} type="button">
-            ❤️ Wishlist <span className="badge">{wishlist.length}</span>
-          </button>
-
-          <button className="btn primary cart-btn" onClick={openCart} type="button">
-            <i className="bi bi-cart" /> <span className="badge">{totalQty}</span>
-          </button>
-
+        {/* Right actions */}
+        <div className="flex items-center gap-2">
+          {/* Wishlist pill — desktop */}
           <button
-            className={`btn hamburger-btn${mobileOpen ? " open" : ""}`}
+            className="hidden md:flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-brand-line dark:border-brand-line-dark text-sm text-brand-text dark:text-brand-text-dark hover:border-brand-accent dark:hover:border-brand-accent-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
+            onClick={openWishlist}
+            type="button"
+            aria-label="Wishlist"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+            Wishlist
+            {wishlist.length > 0 && (
+              <span className="min-w-[18px] h-[18px] rounded-full bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark text-[10px] font-bold flex items-center justify-center px-1">
+                {wishlist.length}
+              </span>
+            )}
+          </button>
+
+          {/* Cart pill */}
+          <button
+            className="flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-brand-line dark:border-brand-line-dark text-sm text-brand-text dark:text-brand-text-dark hover:border-brand-accent dark:hover:border-brand-accent-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
+            onClick={openCart}
+            type="button"
+            aria-label="Cart"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+              <line x1="3" y1="6" x2="21" y2="6"/>
+              <path d="M16 10a4 4 0 01-8 0"/>
+            </svg>
+            {totalQty > 0 ? totalQty : "0"}
+          </button>
+
+          {/* Hamburger — mobile */}
+          <button
+            className="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded-lg text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition"
             onClick={() => setMobileOpen((v) => !v)}
             type="button"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
           >
-            <span className="ham-icon">
-              <span />
-              <span />
-              <span />
-            </span>
+            <span className="block w-5 h-0.5 bg-current transition-transform" style={{ transform: mobileOpen ? "rotate(45deg) translate(0, 5px)" : "" }} />
+            <span className="block w-5 h-0.5 bg-current transition-opacity" style={{ opacity: mobileOpen ? 0 : 1 }} />
+            <span className="block w-5 h-0.5 bg-current transition-transform" style={{ transform: mobileOpen ? "rotate(-45deg) translate(0, -5px)" : "" }} />
           </button>
         </div>
-
-        {mobileOpen && (
-          <div className="mobile-menu open">
-            <Link
-              className="mobile-link"
-              to="/#collection"
-              onClick={() => setMobileOpen(false)}
-            >
-              ✈️ Shop Collection
-            </Link>
-            <Link
-              className="mobile-link"
-              to="/reviews"
-              onClick={() => setMobileOpen(false)}
-            >
-              ⭐ Reviews
-            </Link>
-            <Link
-              className="mobile-link"
-              to="/about"
-              onClick={() => setMobileOpen(false)}
-            >
-              🕯️ About
-            </Link>
-            <Link
-              className="mobile-link"
-              to="/checkout"
-              onClick={() => setMobileOpen(false)}
-            >
-              🛍️ Checkout
-            </Link>
-            <button className="mobile-link" onClick={openWishlist} type="button">
-              ❤️ Wishlist <span className="badge">{wishlist.length}</span>
-            </button>
-          </div>
-        )}
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="absolute top-full left-0 w-full bg-brand-card dark:bg-brand-card-dark border-b border-brand-line dark:border-brand-line-dark shadow-lg flex flex-col py-2 md:hidden">
+          <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/#collection" onClick={() => setMobileOpen(false)}>Shop</Link>
+          <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/about" onClick={() => setMobileOpen(false)}>About Us</Link>
+          <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/reviews" onClick={() => setMobileOpen(false)}>Reviews</Link>
+          <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/checkout" onClick={() => setMobileOpen(false)}>Checkout</Link>
+          <button className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-left flex items-center justify-between" onClick={openWishlist} type="button">
+            Wishlist
+            {wishlist.length > 0 && <span className="text-xs bg-brand-accent dark:bg-brand-accent-dark text-white px-1.5 py-0.5 rounded-full">{wishlist.length}</span>}
+          </button>
+        </div>
+      )}
     </header>
   );
 }
