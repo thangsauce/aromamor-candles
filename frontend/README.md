@@ -10,8 +10,8 @@ Currently, two official plugins are available:
 ## To Run
 
 cd frontend
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 
 ## React Compiler
 
