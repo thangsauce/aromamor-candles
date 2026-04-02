@@ -100,7 +100,6 @@ export default function ShopPage() {
   const [sort, setSort] = useState<SortKey>("name-asc");
   const [inStockOnly, setInStockOnly] = useState(false);
   const [search, setSearch] = useState("");
-  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const allProducts = useMemo(() => Object.values(CATALOG), []);
 
@@ -168,17 +167,17 @@ export default function ShopPage() {
               <div className="flex gap-3 mt-2">
                 <a
                   href="#collection"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("collection")?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }}
                   className="px-7 py-2.5 rounded-lg border border-brand-text dark:border-brand-text-dark text-brand-text dark:text-brand-text-dark text-sm font-medium hover:bg-brand-text hover:text-brand-bg dark:hover:bg-brand-text-dark dark:hover:text-brand-bg-dark transition"
                 >
                   Shop the Collection
                 </a>
-                <button
-                  className={`px-7 py-2.5 rounded-lg border text-sm font-medium transition ${filtersOpen ? "border-brand-accent dark:border-brand-accent-dark text-brand-accent dark:text-brand-accent-dark" : "border-brand-line dark:border-brand-line-dark text-brand-muted dark:text-brand-muted-dark hover:border-brand-muted dark:hover:border-brand-muted-dark"}`}
-                  onClick={() => setFiltersOpen((v) => !v)}
-                  type="button"
-                >
-                  {filtersOpen ? "Close Filters" : "Filter"}
-                </button>
               </div>
             </div>
 
@@ -288,72 +287,97 @@ export default function ShopPage() {
         </section>
 
         {/* Filters panel */}
-        {filtersOpen && (
-          <section className="border-b border-brand-line dark:border-brand-line-dark bg-brand-bg dark:bg-brand-bg-dark">
-            <div className="max-w-[1200px] mx-auto px-6 py-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="flex flex-col gap-1">
-                <label htmlFor="moodFilter" className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Mood</label>
-                <select
-                  id="moodFilter"
-                  value={mood}
-                  onChange={(e) => setMood(e.target.value)}
-                  className="px-3 py-2 rounded-lg border border-brand-line dark:border-brand-line-dark bg-brand-card dark:bg-brand-card-dark text-brand-text dark:text-brand-text-dark text-sm"
+        <section className="border-b border-brand-line/80 dark:border-brand-line-dark/80 bg-brand-bg dark:bg-brand-bg-dark">
+          <div className="max-w-[1200px] mx-auto px-6 py-4">
+            <div className="rounded-2xl border border-brand-line dark:border-brand-line-dark bg-brand-card/90 dark:bg-brand-card-dark/90 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+              <div className="flex items-center justify-between gap-4 px-4 pt-4">
+                <div>
+                  <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-brand-muted dark:text-brand-muted-dark">
+                    Refine the Collection
+                  </p>
+                  <p className="text-sm text-brand-text dark:text-brand-text-dark mt-1">
+                    Filter by mood, search scent notes, and sort the lineup.
+                  </p>
+                </div>
+                <button
+                  className="text-xs text-brand-muted dark:text-brand-muted-dark underline underline-offset-4 hover:text-brand-text dark:hover:text-brand-text-dark transition"
+                  onClick={() => {
+                    setMood("all");
+                    setSort("name-asc");
+                    setSearch("");
+                    setInStockOnly(false);
+                  }}
+                  type="button"
                 >
-                  <option value="all">All moods</option>
-                  {moods.map((m) => (
-                    <option key={m} value={m}>{m}</option>
-                  ))}
-                </select>
+                  Reset all
+                </button>
               </div>
 
-              <div className="flex flex-col gap-1">
-                <label htmlFor="sortSelect" className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Sort</label>
-                <select
-                  id="sortSelect"
-                  value={sort}
-                  onChange={(e) => setSort(e.target.value as SortKey)}
-                  className="px-3 py-2 rounded-lg border border-brand-line dark:border-brand-line-dark bg-brand-card dark:bg-brand-card-dark text-brand-text dark:text-brand-text-dark text-sm"
-                >
-                  <option value="name-asc">Name (A → Z)</option>
-                  <option value="name-desc">Name (Z → A)</option>
-                  <option value="mood-asc">Mood (A → Z)</option>
-                  <option value="mood-desc">Mood (Z → A)</option>
-                  <option value="price-asc">Price (Low → High)</option>
-                  <option value="price-desc">Price (High → Low)</option>
-                </select>
-              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 p-4 pt-3">
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="moodFilter" className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Mood</label>
+                  <select
+                    id="moodFilter"
+                    value={mood}
+                    onChange={(e) => setMood(e.target.value)}
+                    className="px-3 py-2.5 rounded-xl border border-brand-line dark:border-brand-line-dark bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark text-sm"
+                  >
+                    <option value="all">All moods</option>
+                    {moods.map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
+                </div>
 
-              <div className="flex flex-col gap-1">
-                <label htmlFor="searchInput" className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Search</label>
-                <input
-                  id="searchInput"
-                  type="text"
-                  placeholder="Name, destination, scent..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  className="px-3 py-2 rounded-lg border border-brand-line dark:border-brand-line-dark bg-brand-card dark:bg-brand-card-dark text-brand-text dark:text-brand-text-dark text-sm placeholder:text-brand-muted dark:placeholder:text-brand-muted-dark"
-                />
-              </div>
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="sortSelect" className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Sort</label>
+                  <select
+                    id="sortSelect"
+                    value={sort}
+                    onChange={(e) => setSort(e.target.value as SortKey)}
+                    className="px-3 py-2.5 rounded-xl border border-brand-line dark:border-brand-line-dark bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark text-sm"
+                  >
+                    <option value="name-asc">Name (A → Z)</option>
+                    <option value="name-desc">Name (Z → A)</option>
+                    <option value="mood-asc">Mood (A → Z)</option>
+                    <option value="mood-desc">Mood (Z → A)</option>
+                    <option value="price-asc">Price (Low → High)</option>
+                    <option value="price-desc">Price (High → Low)</option>
+                  </select>
+                </div>
 
-              <div className="flex flex-col gap-1 justify-center">
-                <label className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Availability</label>
-                <label className="flex items-center gap-2 cursor-pointer">
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="searchInput" className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Search</label>
                   <input
-                    type="checkbox"
-                    checked={inStockOnly}
-                    onChange={(e) => setInStockOnly(e.target.checked)}
-                    className="accent-brand-accent dark:accent-brand-accent-dark w-4 h-4"
+                    id="searchInput"
+                    type="text"
+                    placeholder="Name, destination, scent..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="px-3 py-2.5 rounded-xl border border-brand-line dark:border-brand-line-dark bg-brand-bg dark:bg-brand-bg-dark text-brand-text dark:text-brand-text-dark text-sm placeholder:text-brand-muted dark:placeholder:text-brand-muted-dark"
                   />
-                  <span className="text-sm text-brand-text dark:text-brand-text-dark">In stock only</span>
-                </label>
+                </div>
+
+                <div className="flex flex-col gap-1">
+                  <label className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark">Availability</label>
+                  <label className="flex min-h-[46px] items-center gap-3 rounded-xl border border-brand-line dark:border-brand-line-dark bg-brand-bg dark:bg-brand-bg-dark px-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={inStockOnly}
+                      onChange={(e) => setInStockOnly(e.target.checked)}
+                      className="accent-brand-accent dark:accent-brand-accent-dark w-4 h-4"
+                    />
+                    <span className="text-sm text-brand-text dark:text-brand-text-dark">In stock only</span>
+                  </label>
+                </div>
               </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
         {/* Collection grid */}
-        <section className="max-w-[1200px] mx-auto px-6 py-12" id="collection">
-          <div className="flex items-baseline justify-between gap-4 mb-8">
+        <section className="max-w-[1200px] mx-auto px-6 pt-8 pb-12 scroll-mt-44" id="collection">
+          <div className="flex items-baseline justify-between gap-4 mb-7">
             <div>
               <h2
                 className="text-3xl text-brand-text dark:text-brand-text-dark"
