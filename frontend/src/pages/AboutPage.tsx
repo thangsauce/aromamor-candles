@@ -69,12 +69,12 @@ export default function AboutPage() {
 
           {/* Rooted in Ritual */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
+            <div className="items-center justify-center">
           <img
             src={`${import.meta.env.BASE_URL}The Founder.JPG`}
             alt="The Founder"
-            height={64*2}
-            width={80*2}
+            height={64*3}
+            width={80*3}
           />
             </div>
             <div className="flex flex-col gap-4">
