@@ -44,45 +44,47 @@ frontend/
 ````
 ## Getting Started
 
-cd frontend
-pnpm install
-pnpm dev
-pnpm build
-pnpm preview
+- cd frontend
+- pnpm install
+- pnpm dev
+- pnpm build
+- pnpm preview
 
 ## Available Scripts
 - From the frontend directory:
 
-pnpm dev - start the Vite dev server
-pnpm build - type-check and build the app
-pnpm preview - preview the production build locally
-pnpm lint - run ESLint
+- pnpm dev - start the Vite dev server
+- pnpm build - type-check and build the app
+- pnpm preview - preview the production build locally
+- pnpm lint - run ESLint
 
 ## Current Scope
-This project is currently a frontend-first storefront prototype.
+- This project is currently a frontend-first storefront prototype.
 
-Included now:
+  Included now:
 
-browsing products
-cart and wishlist state
-demo checkout and confirmation flow
-static catalog and review content
+- browsing products
+- cart and wishlist state
+- demo checkout and confirmation flow
+- static catalog and review content
 
-Not included yet:
+  Not included yet:
 
-real payment processing
-backend order storage
-inventory syncing
-authentication
-admin dashboard
-Notes
-The app uses HashRouter, which makes it easy to deploy on GitHub Pages.
-Checkout is currently a demo flow and does not process real payments.
-Product/catalog data is stored locally in the app.
-Future Improvements
-Integrate Stripe or PayPal
-Persist cart and wishlist across sessions
-Add product images and richer media
-Connect checkout to a backend or serverless API
-Add email confirmations and order management
-Improve accessibility and test coverage
+- r-eal payment processing
+- backend order storage
+- inventory syncing
+- authentication
+- admin dashboard
+- Notes
+- The app uses HashRouter, which makes it easy to deploy on GitHub Pages.
+- Checkout is currently a demo flow and does not process real payments.
+- Product/catalog data is stored locally in the app.
+  
+- Future Improvements:
+  
+- Integrate Stripe or PayPal
+- Persist cart and wishlist across sessions
+- Add product images and richer media
+- Connect checkout to a backend or serverless API
+- Add email confirmations and order management
+- Improve accessibility and test coverage
