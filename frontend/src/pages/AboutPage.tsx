@@ -69,14 +69,7 @@ export default function AboutPage() {
 
           {/* Rooted in Ritual */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="h-64 md:h-80 rounded-2xl bg-gradient-to-br from-amber-100 to-stone-200 dark:from-amber-900/30 dark:to-stone-800 flex items-center justify-center border border-brand-line dark:border-brand-line-dark">
-              <svg width="80" height="80" viewBox="0 0 48 48" fill="none" className="text-brand-muted/30 dark:text-brand-muted-dark/30">
-                <rect x="16" y="20" width="16" height="22" rx="3" fill="currentColor"/>
-                <rect x="20" y="16" width="8" height="6" rx="1" fill="currentColor"/>
-                <ellipse cx="24" cy="13" rx="3" ry="5" fill="currentColor" opacity="0.6"/>
-                <line x1="24" y1="8" x2="24" y2="4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            </div>
+            <img>Margarita Linares - The Founder.JPG</img>
             <div className="flex flex-col gap-4">
               <h2
                 className="text-3xl text-brand-text dark:text-brand-text-dark"
