@@ -73,8 +73,8 @@ export default function AboutPage() {
           <img
             src={`${import.meta.env.BASE_URL}The Founder.JPG`}
             alt="The Founder"
-            h-auto
-            w-80
+            height={64}
+            width={80}
           />
             </div>
             <div className="flex flex-col gap-4">
