@@ -41,6 +41,7 @@ frontend/
     schemas/      Validation schemas
     styles/       Global styles
 
+````
 ## Getting Started
 
 cd frontend
