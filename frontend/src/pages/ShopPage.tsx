@@ -35,31 +35,8 @@ const CATEGORIES = [
           </div>
         </div>
       </div>
-    ),
-  },
-  {
-    title: "Essential Oils",
-    desc: "Nature's essence in a bottle.",
-    visual: (
-      <div className="relative h-52 overflow-hidden bg-gradient-to-b from-[#c8b898] via-[#bfaf90] to-[#b0a080] dark:from-amber-900/70 dark:via-stone-800 dark:to-stone-900">
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/15 via-transparent to-white/30 dark:from-black/30 dark:to-white/5" />
-        {/* Stone surface */}
-        <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-[#a09070]/70 to-transparent dark:from-stone-900/60" />
-        {/* Oil bottle */}
-        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center">
-          {/* Cap */}
-          <div className="w-4 h-5 bg-gradient-to-b from-amber-700 to-amber-800 dark:from-amber-600 dark:to-amber-700 rounded-t-full shadow-sm" />
-          {/* Neck */}
-          <div className="w-6 h-9 bg-gradient-to-b from-amber-800 to-amber-900 dark:from-amber-700 dark:to-amber-800" />
-          {/* Body */}
-          <div className="w-[52px] h-24 bg-gradient-to-b from-amber-800 via-amber-900 to-amber-950 dark:from-amber-700 dark:to-amber-900 rounded-b-md shadow-2xl relative overflow-hidden">
-            <div className="absolute left-2 top-2 w-1.5 h-12 bg-white/15 rounded-full rotate-6" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/20" />
-          </div>
-        </div>
-      </div>
-    ),
-  },
+    ),},
+    
   {
     title: "Gift Sets",
     desc: "Perfectly paired for any occasion.",
