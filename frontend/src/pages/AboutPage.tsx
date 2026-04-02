@@ -72,7 +72,8 @@ export default function AboutPage() {
             <div className="h-64 md:h-80 rounded-2xl bg-gradient-to-br from-amber-100 to-stone-200 dark:from-amber-900/30 dark:to-stone-800 flex items-center justify-center border border-brand-line dark:border-brand-line-dark">
             src={`${import.meta.env.BASE_URL}Margarita Linares - The Founder.JPG`}
             alt="Founder"
-            style={{ width: "200px", height: "auto" }}
+            width: "200px"
+            height: "auto"
             </div>
             <div className="flex flex-col gap-4">
               <h2
