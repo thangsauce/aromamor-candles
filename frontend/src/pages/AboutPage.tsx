@@ -78,7 +78,6 @@ export default function AboutPage() {
               </svg>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">The Founder</p>
               <h2
                 className="text-3xl text-brand-text dark:text-brand-text-dark"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
@@ -94,7 +93,7 @@ export default function AboutPage() {
               <p className="text-sm text-brand-muted dark:text-brand-muted-dark leading-relaxed">
                 I hand-pour every candle in small batches using a clean soy blend, and I obsess over every note in every fragrance until it feels just right. This is more than a candle brand — it's a passport for your senses.
               </p>
-              <p className="text-sm font-medium text-brand-accent dark:text-brand-accent-dark" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}>— The Founder</p>
+              <p className="text-sm font-medium text-brand-accent dark:text-brand-accent-dark" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}>— Margarita Linares</p>
             </div>
           </section>
 
