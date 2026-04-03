@@ -178,7 +178,7 @@ export default function ProductCard({ product: p, variant = "vertical" }: Produc
 
       {/* Card body */}
       <div className="flex flex-col flex-1 p-5 gap-3">
-        <div>
+        <div className="text-center">
           <h4
             className="text-base text-brand-text dark:text-brand-text-dark leading-snug"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
@@ -188,7 +188,7 @@ export default function ProductCard({ product: p, variant = "vertical" }: Produc
           <p className="text-xs text-brand-muted dark:text-brand-muted-dark mt-0.5">{p.mood} · {p.destination}</p>
         </div>
 
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1 justify-center">
           {p.scents.map((s) => (
             <span
               key={s}
