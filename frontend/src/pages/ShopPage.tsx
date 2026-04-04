@@ -218,51 +218,6 @@ export default function ShopPage() {
           </div>
         </section>
 
-        {/* Category tiles */}
-        <section className="max-w-[1200px] mx-auto px-6 py-14">
-          <h2
-            className="text-3xl text-center text-brand-text dark:text-brand-text-dark mb-8"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-          >
-            Bestsellers
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {CATEGORIES.map((cat) => (
-              <a
-                key={cat.title}
-                href="#collection"
-                className="group flex flex-col rounded-2xl overflow-hidden border border-brand-line dark:border-brand-line-dark hover:border-brand-accent/50 dark:hover:border-brand-accent-dark/50 transition-all hover:shadow-md cursor-pointer"
-              >
-                {cat.visual}
-                <div className="p-4 text-center bg-brand-bg dark:bg-brand-bg-dark">
-                  <h3
-                    className="text-lg text-brand-text dark:text-brand-text-dark group-hover:text-brand-accent dark:group-hover:text-brand-accent-dark transition"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-                  >
-                    {cat.title}
-                  </h3>
-                  <p className="text-xs text-brand-muted dark:text-brand-muted-dark mt-0.5">{cat.desc}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        {/* Bestsellers horizontal list */}
-        <section className="max-w-[1200px] mx-auto px-6 pb-14">
-          <h2
-            className="text-3xl text-center text-brand-text dark:text-brand-text-dark mb-8"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-          >
-            Bestsellers
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {bestsellers.map((p) => (
-              <ProductCard key={p.id} product={p} variant="horizontal" />
-            ))}
-          </div>
-        </section>
-
         {/* Mood strip */}
         <section className="border-y border-brand-line dark:border-brand-line-dark bg-brand-card dark:bg-brand-card-dark">
           <div className="max-w-[1200px] mx-auto px-6 py-3 flex gap-2 overflow-x-auto">

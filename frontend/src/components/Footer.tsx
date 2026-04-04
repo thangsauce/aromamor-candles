@@ -24,8 +24,6 @@ export default function Footer() {
         <div className="flex flex-col gap-3">
           <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Shop</div>
           <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/#collection">All Candles</Link>
-          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/#collection">Essential Oils</Link>
-          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/#collection">Gift Sets</Link>
         </div>
 
         {/* Col 3: Support */}
@@ -40,9 +38,7 @@ export default function Footer() {
         {/* Col 4: Contact */}
         <div className="flex flex-col gap-3">
           <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Contact</div>
-          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="mailto:ImAmunch@ucf.edu">ImAmunch@ucf.edu</a>
-          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Instagram</a>
-          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">TikTok</a>
+          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="mailto:margaritalinares@hotmail.com">margaritalinares@hotmail.com</a>
         </div>
       </div>
 
