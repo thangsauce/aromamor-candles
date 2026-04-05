@@ -69,18 +69,12 @@ export default function AboutPage() {
 
           {/* Rooted in Ritual */}
           <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-<<<<<<< HEAD
-            <div className="items-center justify-center">
-          <img
-            src={`${import.meta.env.BASE_URL}The Founder.JPG`}
-            alt="The Founder"
-            height={64*3}
-            width={80*3}
-          />
-=======
             <div className="h-64 md:h-80 rounded-2xl bg-gradient-to-br from-amber-100 to-stone-200 dark:from-amber-900/30 dark:to-stone-800 flex items-center justify-center border border-brand-line dark:border-brand-line-dark overflow-hidden">
-              <img src="/aromamor-candles/Margarita Linares - The Founder.JPG" alt="Margarita Linares, Founder" className="w-full h-full object-cover object-[center_25%]" />
->>>>>>> 9a838987f5a60ea3460332c2c2063119191370ee
+              <img
+                src={`${import.meta.env.BASE_URL}The Founder.JPG`}
+                alt="Margarita Linares, Founder"
+                className="w-full h-full object-cover object-[center_25%]"
+              />
             </div>
             <div className="flex flex-col gap-4">
               <h2
