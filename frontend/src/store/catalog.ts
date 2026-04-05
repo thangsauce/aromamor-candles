@@ -10,6 +10,7 @@ export const CATALOG: Record<string, Product> = {
     price: 22.0,
     inStock: true,
     tag: "NEW",
+    image: "/aromamor-candles/Puerto Rico Paradise.png",
   },
   "parisian-cafe": {
     id: "parisian-cafe",
@@ -20,6 +21,7 @@ export const CATALOG: Record<string, Product> = {
     price: 22.0,
     inStock: true,
     tag: "BESTSELLER",
+    image: "/aromamor-candles/Parisian Cafe.png",
   },
   "santorini-breeze": {
     id: "santorini-breeze",
@@ -30,6 +32,7 @@ export const CATALOG: Record<string, Product> = {
     price: 22.0,
     inStock: false,
     tag: "LIMITED",
+    image: "/aromamor-candles/Santorini Breeze.png",
   },
   "first-class-lounge": {
     id: "first-class-lounge",
@@ -40,6 +43,7 @@ export const CATALOG: Record<string, Product> = {
     price: 24.0,
     inStock: true,
     tag: "SIGNATURE",
+    image: "/aromamor-candles/First Class Lounge.png",
   },
   "graceful-journey": {
     id: "graceful-journey",
@@ -50,6 +54,7 @@ export const CATALOG: Record<string, Product> = {
     price: 22.0,
     inStock: true,
     tag: "CALM",
+    image: "/aromamor-candles/Graceful Journey.png",
   },
   "amalfi-morning": {
     id: "amalfi-morning",
@@ -60,5 +65,6 @@ export const CATALOG: Record<string, Product> = {
     price: 22.0,
     inStock: true,
     tag: "FRESH",
+    image: "/aromamor-candles/Amalfi Morning.png",
   },
 };

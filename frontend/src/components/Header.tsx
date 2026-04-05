@@ -30,12 +30,12 @@ export default function Header() {
 
         {/* Center nav — desktop */}
         <nav className="hidden md:flex items-center text-sm text-brand-muted dark:text-brand-muted-dark">
-          <Link
-            to="/#collection"
+          <a
+            href="/#collection"
             className="px-3 py-1.5 text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
           >
             Shop
-          </Link>
+          </a>
           <span className="text-brand-line dark:text-brand-line-dark select-none">|</span>
           <Link
             to="/about"
@@ -105,7 +105,7 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="absolute top-full left-0 w-full bg-brand-card dark:bg-brand-card-dark border-b border-brand-line dark:border-brand-line-dark shadow-lg flex flex-col py-2 md:hidden">
-          <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/#collection" onClick={() => setMobileOpen(false)}>Shop</Link>
+          <a className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" href="/#collection" onClick={() => setMobileOpen(false)}>Shop</a>
           <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/about" onClick={() => setMobileOpen(false)}>About Us</Link>
           <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/reviews" onClick={() => setMobileOpen(false)}>Reviews</Link>
           <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/checkout" onClick={() => setMobileOpen(false)}>Checkout</Link>

@@ -43,39 +43,41 @@ export default function ProductCard({ product: p, variant = "vertical" }: Produc
 
   if (variant === "horizontal") {
     return (
-      <article className={`flex items-center gap-4 bg-brand-card dark:bg-brand-card-dark border border-brand-line dark:border-brand-line-dark rounded-xl px-4 py-3 hover:shadow-sm transition-shadow ${!p.inStock ? "opacity-60" : ""}`}>
-        {/* Thumbnail */}
-        <div className={`flex-shrink-0 w-16 h-16 rounded-lg bg-gradient-to-br ${gradient} overflow-hidden`}>
-          {p.image ? (
-            <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-brand-muted/50 dark:text-brand-muted-dark/50">
-                <rect x="8" y="10" width="8" height="11" rx="1.5" fill="currentColor"/>
-                <rect x="10" y="8" width="4" height="3" rx="0.5" fill="currentColor"/>
-                <ellipse cx="12" cy="7" rx="1.5" ry="2.5" fill="currentColor" opacity="0.6"/>
-              </svg>
-            </div>
-          )}
-        </div>
-
-        {/* Info */}
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <h4 className="font-medium text-sm text-brand-text dark:text-brand-text-dark truncate">{p.name}</h4>
-            {p.tag && (
-              <span className="flex-shrink-0 px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase tracking-wide border border-brand-accent/40 dark:border-brand-accent-dark/40 text-brand-accent dark:text-brand-accent-dark">
-                {p.tag}
-              </span>
+      <article className={`flex flex-col gap-4 bg-brand-card dark:bg-brand-card-dark border border-brand-line dark:border-brand-line-dark rounded-xl px-4 py-4 hover:shadow-sm transition-shadow ${!p.inStock ? "opacity-60" : ""}`}>
+        <div className="flex items-start gap-4 min-w-0">
+          {/* Thumbnail */}
+          <div className={`flex-shrink-0 w-16 h-16 rounded-lg bg-gradient-to-br ${gradient} overflow-hidden`}>
+            {p.image ? (
+              <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-brand-muted/50 dark:text-brand-muted-dark/50">
+                  <rect x="8" y="10" width="8" height="11" rx="1.5" fill="currentColor"/>
+                  <rect x="10" y="8" width="4" height="3" rx="0.5" fill="currentColor"/>
+                  <ellipse cx="12" cy="7" rx="1.5" ry="2.5" fill="currentColor" opacity="0.6"/>
+                </svg>
+              </div>
             )}
           </div>
-          <p className="text-[11px] text-brand-muted dark:text-brand-muted-dark">{p.mood}</p>
-          <p className="text-[11px] text-brand-muted/70 dark:text-brand-muted-dark/70 truncate">{p.scents.join(", ")}</p>
+
+          {/* Info */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start gap-2">
+              <h4 className="font-medium text-sm text-brand-text dark:text-brand-text-dark leading-snug truncate">{p.name}</h4>
+              {p.tag && (
+                <span className="flex-shrink-0 px-1.5 py-0.5 rounded text-[9px] font-semibold uppercase tracking-wide border border-brand-accent/40 dark:border-brand-accent-dark/40 text-brand-accent dark:text-brand-accent-dark">
+                  {p.tag}
+                </span>
+              )}
+            </div>
+            <p className="text-[11px] text-brand-muted dark:text-brand-muted-dark mt-0.5">{p.mood}</p>
+            <p className="text-[11px] text-brand-muted/70 dark:text-brand-muted-dark/70 truncate">{p.scents.join(", ")}</p>
+          </div>
         </div>
 
         {/* Price + actions */}
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <div className="flex flex-col items-end gap-0.5">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div className="flex flex-col gap-0.5">
             <span className="text-sm font-semibold text-brand-text dark:text-brand-text-dark">{money(p.price)}</span>
             {reviewCount > 0 ? (
               <StarRating rating={rating} size={11} />
@@ -84,49 +86,51 @@ export default function ProductCard({ product: p, variant = "vertical" }: Produc
             )}
           </div>
 
-          {p.inStock ? (
-            <>
-              <div className="flex items-center gap-0 border border-brand-line dark:border-brand-line-dark rounded-full overflow-hidden">
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            {p.inStock ? (
+              <>
+                <div className="flex items-center gap-0 border border-brand-line dark:border-brand-line-dark rounded-full overflow-hidden">
+                  <button
+                    className="w-7 h-7 flex items-center justify-center text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-sm"
+                    onClick={() => setQty((q) => Math.max(q - 1, 1))}
+                    type="button"
+                  >
+                    −
+                  </button>
+                  <span className="text-sm text-brand-text dark:text-brand-text-dark w-5 text-center">{qty}</span>
+                  <button
+                    className="w-7 h-7 flex items-center justify-center text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-sm"
+                    onClick={() => setQty((q) => Math.min(q + 1, 10))}
+                    type="button"
+                  >
+                    +
+                  </button>
+                </div>
                 <button
-                  className="w-7 h-7 flex items-center justify-center text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-sm"
-                  onClick={() => setQty((q) => Math.max(q - 1, 1))}
+                  className="px-4 py-1.5 rounded-full bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark text-xs font-medium hover:opacity-90 transition"
+                  onClick={handleAdd}
                   type="button"
                 >
-                  −
+                  Add to Cart
                 </button>
-                <span className="text-sm text-brand-text dark:text-brand-text-dark w-5 text-center">{qty}</span>
-                <button
-                  className="w-7 h-7 flex items-center justify-center text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-sm"
-                  onClick={() => setQty((q) => Math.min(q + 1, 10))}
-                  type="button"
-                >
-                  +
-                </button>
-              </div>
-              <button
-                className="px-4 py-1.5 rounded-full bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark text-xs font-medium hover:opacity-90 transition"
-                onClick={handleAdd}
-                type="button"
-              >
-                Add to Cart
-              </button>
-            </>
-          ) : (
-            <span className="px-3 py-1.5 rounded-full border border-brand-line dark:border-brand-line-dark text-xs text-brand-muted dark:text-brand-muted-dark">
-              Out of Stock
-            </span>
-          )}
+              </>
+            ) : (
+              <span className="px-3 py-1.5 rounded-full border border-brand-line dark:border-brand-line-dark text-xs text-brand-muted dark:text-brand-muted-dark">
+                Out of Stock
+              </span>
+            )}
 
-          <button
-            className={`w-7 h-7 flex items-center justify-center rounded-full border transition ${wishlisted ? "border-brand-accent dark:border-brand-accent-dark text-brand-accent dark:text-brand-accent-dark" : "border-brand-line dark:border-brand-line-dark text-brand-muted dark:text-brand-muted-dark hover:border-brand-accent dark:hover:border-brand-accent-dark"}`}
-            onClick={() => toggleWishlist(p.id)}
-            type="button"
-            aria-label={wishlisted ? "Remove from wishlist" : "Save to wishlist"}
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill={wishlisted ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-          </button>
+            <button
+              className={`w-7 h-7 flex items-center justify-center rounded-full border transition ${wishlisted ? "border-brand-accent dark:border-brand-accent-dark text-brand-accent dark:text-brand-accent-dark" : "border-brand-line dark:border-brand-line-dark text-brand-muted dark:text-brand-muted-dark hover:border-brand-accent dark:hover:border-brand-accent-dark"}`}
+              onClick={() => toggleWishlist(p.id)}
+              type="button"
+              aria-label={wishlisted ? "Remove from wishlist" : "Save to wishlist"}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill={wishlisted ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </article>
     );
@@ -174,7 +178,7 @@ export default function ProductCard({ product: p, variant = "vertical" }: Produc
 
       {/* Card body */}
       <div className="flex flex-col flex-1 p-5 gap-3">
-        <div>
+        <div className="text-center">
           <h4
             className="text-base text-brand-text dark:text-brand-text-dark leading-snug"
             style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
@@ -184,7 +188,7 @@ export default function ProductCard({ product: p, variant = "vertical" }: Produc
           <p className="text-xs text-brand-muted dark:text-brand-muted-dark mt-0.5">{p.mood} · {p.destination}</p>
         </div>
 
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1 justify-center">
           {p.scents.map((s) => (
             <span
               key={s}
