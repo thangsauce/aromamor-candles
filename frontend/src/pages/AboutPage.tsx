@@ -77,6 +77,7 @@ export default function AboutPage() {
               />
             </div>
             <div className="flex flex-col gap-4">
+              <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">The Founder</p>
               <h2
                 className="text-3xl text-brand-text dark:text-brand-text-dark"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}

@@ -195,11 +195,6 @@ export default function ShopPage() {
           </div>
         </section>
 
-<<<<<<< HEAD
-        {/* Category tiles */}
-
-=======
->>>>>>> 9a838987f5a60ea3460332c2c2063119191370ee
         {/* Mood strip */}
         <section className="border-y border-brand-line dark:border-brand-line-dark bg-brand-card dark:bg-brand-card-dark">
           <div className="max-w-[1200px] mx-auto px-6 py-3 flex gap-2 overflow-x-auto">
