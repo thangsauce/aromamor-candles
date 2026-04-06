@@ -30,12 +30,12 @@ export default function Header() {
 
         {/* Center nav — desktop */}
         <nav className="hidden md:flex items-center text-sm text-brand-muted dark:text-brand-muted-dark">
-          <a
-            href="/#collection"
+          <Link
+            to="/"
             className="px-3 py-1.5 text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
           >
             Shop
-          </a>
+          </Link>
           <span className="text-brand-line dark:text-brand-line-dark select-none">|</span>
           <Link
             to="/about"
