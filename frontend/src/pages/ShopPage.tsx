@@ -6,72 +6,6 @@ import Footer from "../components/Footer";
 
 type SortKey = "name-asc" | "name-desc" | "mood-asc" | "mood-desc" | "price-asc" | "price-desc";
 
-const CATEGORIES = [
-  {
-    title: "Scented Candles",
-    desc: "Warm. Hand poured. Irresistible.",
-    visual: (
-      <div className="relative h-52 overflow-hidden bg-gradient-to-b from-[#e8dfd2] via-[#ddd4c4] to-[#ccc2b0] dark:from-stone-700 dark:via-stone-800 dark:to-stone-900">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/25 dark:from-black/30 dark:to-white/5" />
-        {/* Soft surface */}
-        <div className="absolute bottom-0 w-full h-14 bg-gradient-to-t from-[#bbb0a0]/60 to-transparent dark:from-stone-900/60" />
-        {/* Three pillar candles */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-end gap-3">
-          {/* Left */}
-          <div className="relative">
-            <div className="w-0.5 h-3 bg-amber-900/50 mx-auto" />
-            <div className="w-8 h-[88px] rounded-t-[2px] bg-gradient-to-b from-stone-50 via-stone-100 to-stone-200 dark:from-stone-300 dark:to-stone-500 shadow-lg" />
-          </div>
-          {/* Center - tallest, with flame glow */}
-          <div className="relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-amber-300/50 blur-lg" />
-            <div className="w-0.5 h-3 bg-amber-900/50 mx-auto" />
-            <div className="w-11 h-28 rounded-t-[2px] bg-gradient-to-b from-[#f5f0e8] via-stone-100 to-stone-200 dark:from-amber-100/60 dark:to-stone-400 shadow-xl" />
-          </div>
-          {/* Right */}
-          <div className="relative">
-            <div className="w-0.5 h-3 bg-amber-900/50 mx-auto" />
-            <div className="w-9 h-20 rounded-t-[2px] bg-gradient-to-b from-stone-100 to-stone-200 dark:from-stone-300 dark:to-stone-500 shadow-lg" />
-          </div>
-        </div>
-      </div>
-    ),},
-    
-  {
-    title: "Gift Sets",
-    desc: "Perfectly paired for any occasion.",
-    visual: (
-      <div className="relative h-52 overflow-hidden bg-gradient-to-b from-[#ede5d8] via-[#e0d6c8] to-[#cfc5b4] dark:from-stone-700 dark:via-stone-800 dark:to-stone-900">
-        <div className="absolute inset-0 bg-gradient-to-tl from-black/10 via-transparent to-white/30 dark:from-black/30 dark:to-white/5" />
-        {/* Surface */}
-        <div className="absolute bottom-0 w-full h-16 bg-gradient-to-t from-[#bdb0a0]/60 to-transparent dark:from-stone-900/50" />
-        {/* Ceramic plate */}
-        <div className="absolute bottom-14 left-1/2 -translate-x-1/2 w-36 h-5 bg-gradient-to-b from-stone-50 to-stone-200 dark:from-stone-400 dark:to-stone-600 rounded-full shadow-md" />
-        {/* Amber jar candle */}
-        <div className="absolute bottom-[4.75rem] left-[calc(50%-28px)]">
-          <div className="relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-amber-300/40 blur-xl" />
-            <div className="w-14 h-14 bg-gradient-to-b from-amber-800 via-amber-900 to-amber-950 rounded-md shadow-xl relative overflow-hidden">
-              <div className="absolute left-1.5 top-1.5 w-1.5 h-8 bg-white/12 rounded-full rotate-6" />
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-amber-400/15" />
-            </div>
-          </div>
-        </div>
-        {/* Small oil bottle */}
-        <div className="absolute bottom-[4.75rem] left-[calc(50%+4px)]">
-          <div className="flex flex-col items-center">
-            <div className="w-2.5 h-4 bg-amber-800 dark:bg-amber-700 rounded-t-full" />
-            <div className="w-4 h-6 bg-amber-900 dark:bg-amber-800" />
-            <div className="w-9 h-16 bg-gradient-to-b from-amber-800 via-amber-900 to-amber-950 rounded-b-sm shadow-lg relative overflow-hidden">
-              <div className="absolute left-1 top-1 w-1 h-9 bg-white/10 rounded-full" />
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-];
-
 export default function ShopPage() {
   const [mood, setMood] = useState("all");
   const [sort, setSort] = useState<SortKey>("name-asc");
@@ -107,11 +41,6 @@ export default function ShopPage() {
         }
       });
   }, [allProducts, mood, sort, inStockOnly, search]);
-
-  const bestsellers = useMemo(
-    () => allProducts.filter((p) => p.inStock).slice(0, 3),
-    [allProducts]
-  );
 
   return (
     <div className="flex flex-col min-h-screen">
