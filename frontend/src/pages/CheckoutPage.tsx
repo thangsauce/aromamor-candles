@@ -82,7 +82,7 @@ export default function CheckoutPage() {
               <div className="flex flex-col items-center text-center py-8 gap-3">
                 <p className="text-brand-muted dark:text-brand-muted-dark">Your cart is empty.</p>
                 <p className="text-xs text-brand-muted dark:text-brand-muted-dark">Go back and add a candle first.</p>
-                <Link className="mt-2 px-5 py-2.5 rounded-xl bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark font-semibold text-sm hover:opacity-90 transition" to="/">
+                <Link className="mt-2 px-5 py-2.5 rounded-xl bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark font-semibold text-sm hover:opacity-90 transition" to="/shop">
                   Shop Candles
                 </Link>
               </div>
@@ -175,7 +175,7 @@ export default function CheckoutPage() {
               </div>
 
               <div className="flex gap-3 pt-2">
-                <Link className="flex-1 px-4 py-2.5 rounded-xl border border-brand-line dark:border-brand-line-dark text-sm text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-center" to="/">
+                <Link className="flex-1 px-4 py-2.5 rounded-xl border border-brand-line dark:border-brand-line-dark text-sm text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-center" to="/shop">
                   Back
                 </Link>
                 <button className="flex-1 px-4 py-2.5 rounded-xl bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark font-semibold text-sm hover:opacity-90 transition" type="submit">

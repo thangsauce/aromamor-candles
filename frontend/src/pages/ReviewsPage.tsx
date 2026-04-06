@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { CATALOG } from "../store/catalog";
 import { useReviews } from "../store/reviews";
@@ -23,6 +23,8 @@ export default function ReviewsPage() {
   const { getReviews, addReview, deleteReview, avgRating, totalReviews } = useReviews();
   const [selected, setSelected] = useState<string>(ALL);
   const products = Object.values(CATALOG);
+  const reviewFormRef = useRef<HTMLDivElement | null>(null);
+  const headlineInputRef = useRef<HTMLInputElement | null>(null);
 
   const [formProduct, setFormProduct] = useState<string>(products[0]?.id ?? "");
   const [formAuthor, setFormAuthor] = useState("");
@@ -140,7 +142,7 @@ export default function ReviewsPage() {
               </div>
 
               {/* Write a review */}
-              <div className="bg-brand-card dark:bg-brand-card-dark rounded-2xl border border-brand-line dark:border-brand-line-dark p-5">
+              <div ref={reviewFormRef} className="bg-brand-card dark:bg-brand-card-dark rounded-2xl border border-brand-line dark:border-brand-line-dark p-5">
                 <h2
                   className="text-base text-brand-text dark:text-brand-text-dark mb-4"
                   style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
@@ -172,7 +174,7 @@ export default function ReviewsPage() {
 
                   <div className="flex flex-col gap-1">
                     <label className="text-xs text-brand-muted dark:text-brand-muted-dark">Headline</label>
-                    <input required placeholder="Your review headline..." value={formTitle} onChange={(e) => setFormTitle(e.target.value)} className={inputClass} />
+                    <input ref={headlineInputRef} required placeholder="Your review headline..." value={formTitle} onChange={(e) => setFormTitle(e.target.value)} className={inputClass} />
                   </div>
 
                   <div className="flex flex-col gap-1">
@@ -230,7 +232,7 @@ export default function ReviewsPage() {
                       </div>
                       <Link
                         className="flex-shrink-0 px-4 py-1.5 rounded-full border border-brand-line dark:border-brand-line-dark text-xs text-brand-text dark:text-brand-text-dark hover:border-brand-accent dark:hover:border-brand-accent-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
-                        to="/"
+                        to="/shop"
                       >
                         Shop This Candle
                       </Link>
@@ -253,7 +255,9 @@ export default function ReviewsPage() {
                                   type="button"
                                   title="Delete review"
                                 >
-                                  ✕
+                                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                                    <path d="M6 6l12 12M18 6l-12 12" />
+                                  </svg>
                                 </button>
                               </div>
                               <p className="text-sm text-brand-muted dark:text-brand-muted-dark leading-relaxed">{r.body}</p>
@@ -272,7 +276,11 @@ export default function ReviewsPage() {
                           <button
                             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-brand-line dark:border-brand-line-dark text-sm text-brand-text dark:text-brand-text-dark hover:border-brand-accent dark:hover:border-brand-accent-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
                             type="button"
-                            onClick={() => { setFormProduct(p.id); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                            onClick={() => {
+                              setFormProduct(p.id);
+                              reviewFormRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+                              setTimeout(() => headlineInputRef.current?.focus(), 220);
+                            }}
                           >
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                               <path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>

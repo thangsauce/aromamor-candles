@@ -24,7 +24,9 @@ export default function CartDrawer() {
           type="button"
           aria-label="Close cart"
         >
-          ✕
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M6 6l12 12M18 6l-12 12" />
+          </svg>
         </button>
       </div>
 
@@ -33,7 +35,13 @@ export default function CartDrawer() {
         {entries.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
             <p className="text-brand-muted dark:text-brand-muted-dark">Your cart is empty.</p>
-            <p className="text-xs text-brand-muted dark:text-brand-muted-dark">Add a candle to start your journey ✈️</p>
+            <p className="text-xs text-brand-muted dark:text-brand-muted-dark inline-flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 2L11 13" />
+                <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+              Add a candle to start your journey
+            </p>
           </div>
         ) : (
           <ul className="flex flex-col gap-4" aria-label="Cart items">
@@ -109,7 +117,7 @@ export default function CartDrawer() {
             Checkout
           </Link>
         </div>
-        <p className="text-[10px] text-brand-muted dark:text-brand-muted-dark text-center">(Demo cart) Hook this to a payment system later.</p>
+        <p className="text-[10px] text-brand-muted dark:text-brand-muted-dark text-center">(Demo cart)</p>
       </div>
     </aside>
   );

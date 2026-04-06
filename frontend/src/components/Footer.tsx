@@ -23,14 +23,14 @@ export default function Footer() {
         {/* Col 2: Shop */}
         <div className="flex flex-col gap-3">
           <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Shop</div>
-          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/#collection">All Candles</Link>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/shop">All Candles</Link>
         </div>
 
         {/* Col 3: Support */}
         <div className="flex flex-col gap-3">
           <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Support</div>
-          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">FAQ</a>
-          <a className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Shipping &amp; Returns</a>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/faq">FAQ</Link>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/shipping-returns">Shipping &amp; Returns</Link>
           <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/about">About Us</Link>
           <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/reviews">Reviews</Link>
         </div>
@@ -46,8 +46,8 @@ export default function Footer() {
         <div className="max-w-[1200px] mx-auto px-6 py-4 flex flex-wrap justify-between gap-2">
           <p className="text-xs text-brand-muted dark:text-brand-muted-dark">© 2026 Aromamor. All rights reserved.</p>
           <div className="flex gap-4">
-            <a className="text-xs text-brand-muted dark:text-brand-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Privacy Policy</a>
-            <a className="text-xs text-brand-muted dark:text-brand-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" href="#">Terms of Service</a>
+            <Link className="text-xs text-brand-muted dark:text-brand-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/privacy-policy">Privacy Policy</Link>
+            <Link className="text-xs text-brand-muted dark:text-brand-muted-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/terms-of-service">Terms of Service</Link>
           </div>
         </div>
       </div>

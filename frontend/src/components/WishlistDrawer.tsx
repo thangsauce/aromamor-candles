@@ -36,14 +36,21 @@ export default function WishlistDrawer() {
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-brand-line dark:border-brand-line-dark">
-        <h3 className="font-semibold text-brand-text dark:text-brand-text-dark">❤️ Wishlist</h3>
+        <h3 className="font-semibold text-brand-text dark:text-brand-text-dark inline-flex items-center gap-2">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.9">
+            <path d="M12 20.5l-1.1-1C6.2 15.2 3 12.3 3 8.8A4.8 4.8 0 0 1 7.8 4c1.6 0 3.1.8 4.2 2.1A5.5 5.5 0 0 1 16.2 4 4.8 4.8 0 0 1 21 8.8c0 3.5-3.2 6.4-7.9 10.7l-1.1 1z" />
+          </svg>
+          Wishlist
+        </h3>
         <button
           className="p-2 rounded-lg text-brand-muted dark:text-brand-muted-dark hover:text-brand-text dark:hover:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition"
           onClick={() => setWishlistOpen(false)}
           type="button"
           aria-label="Close wishlist"
         >
-          ✕
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M6 6l12 12M18 6l-12 12" />
+          </svg>
         </button>
       </div>
 
@@ -52,7 +59,12 @@ export default function WishlistDrawer() {
         {wishlist.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
             <p className="text-brand-muted dark:text-brand-muted-dark">No saved items yet.</p>
-            <p className="text-xs text-brand-muted dark:text-brand-muted-dark">Tap the ♡ on any candle to save it ✈️</p>
+            <p className="text-xs text-brand-muted dark:text-brand-muted-dark inline-flex items-center gap-1.5">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.9">
+                <path d="M12 20.5l-1.1-1C6.2 15.2 3 12.3 3 8.8A4.8 4.8 0 0 1 7.8 4c1.6 0 3.1.8 4.2 2.1A5.5 5.5 0 0 1 16.2 4 4.8 4.8 0 0 1 21 8.8c0 3.5-3.2 6.4-7.9 10.7l-1.1 1z" />
+              </svg>
+              Tap the wishlist icon on any candle to save it
+            </p>
           </div>
         ) : (
           <ul className="flex flex-col gap-4" aria-label="Wishlist items">

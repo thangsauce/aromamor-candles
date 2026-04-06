@@ -20,7 +20,9 @@ export default function Toast() {
           type="button"
           aria-label="Close"
         >
-          ✕
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <path d="M6 6l12 12M18 6l-12 12" />
+          </svg>
         </button>
       </div>
       <div className="text-xs text-brand-muted dark:text-brand-muted-dark">{toast.body}</div>

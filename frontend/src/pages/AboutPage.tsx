@@ -170,7 +170,7 @@ export default function AboutPage() {
             <div className="flex gap-3 flex-wrap justify-center mt-1">
               <Link
                 className="px-7 py-2.5 rounded-full bg-brand-text dark:bg-brand-text-dark text-brand-bg dark:text-brand-bg-dark text-sm font-medium hover:opacity-90 transition"
-                to="/"
+                to="/shop"
               >
                 Shop All Candles
               </Link>

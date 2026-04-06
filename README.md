@@ -1,90 +1,73 @@
-# Aromamor Candles
+# Aromamor Candles (MERN)
 
-Aromamor Candles is a boutique candle and fragrance storefront built with React, TypeScript, Vite, and Tailwind CSS. It features a polished shopping experience with product browsing, filtering, wishlist support, cart management, and a demo checkout flow.
+Aromamor Candles is a MERN full-stack class project with role-based access control.
 
-## Live Demo
+## Stack
+- MongoDB + Mongoose
+- Express + Node.js
+- React + Vite + TypeScript
 
-[View the site](https://thangsauce.github.io/aromamor-candles/)
+## App Roles
+- `admin`: product/tag management, user/order visibility
+- `user`: browse store and manage only their own review data
 
-## Features
+## Quick Start
 
-- Curated candle storefront with mood- and destination-based products
-- Bestsellers section with horizontal product cards
-- Always-visible filters for mood, search, sort, and stock availability
-- Wishlist drawer
-- Cart drawer with quantity controls
-- Checkout page with pickup or shipping selection
-- Demo order confirmation flow
-- About and Reviews pages
-- Responsive layout for desktop and mobile
+### Backend
+```bash
+cd backend
+cp .env.example .env
+pnpm install
+pnpm seed
+pnpm dev
+```
 
-## Tech Stack
+### Frontend
+```bash
+cd frontend
+pnpm install
+pnpm dev
+```
 
-- React 19
-- TypeScript
-- Vite
-- React Router
-- Tailwind CSS v4
-- React Query
-- React Hook Form
-- Zod
-- Axios
+Frontend: `http://localhost:5173`
+Backend: `http://localhost:5000`
 
-## Project Structure
+### If Port 5000 Is Busy
+```bash
+cd backend
+PORT=5001 pnpm dev
+```
 
+Then run frontend with:
+```bash
+cd frontend
+VITE_API_URL=http://localhost:5001 pnpm dev
+```
+
+## Assignment Coverage
+- Login page is the first screen (`/login`)
+- User registration supports unique usernames
+- Two roles: Administrator and Standard User
+- Role-based routing and API authorization
+- Admin CRUD on products
+- Standard user CRUD on owned reviews only
+- 5+ entities: `users`, `products`, `tags`, `reviews`, `orders`, `favorites`
+- Many-to-many relationship: `products <-> tags` (also `users <-> products` via favorites)
+
+## Project Layout
 ```text
-frontend/
+backend/
+  .env.example
+  package.json
   src/
-    components/   Reusable UI pieces
-    pages/        Route-level pages
-    store/        Catalog data, app state, hooks
-    schemas/      Validation schemas
-    styles/       Global styles
-
-````
-## Getting Started
-
-- cd frontend
-- pnpm install
-- pnpm dev
-- pnpm build
-- pnpm preview
-
-## Available Scripts
-- From the frontend directory:
-
-- pnpm dev - start the Vite dev server
-- pnpm build - type-check and build the app
-- pnpm preview - preview the production build locally
-- pnpm lint - run ESLint
-
-## Current Scope
-- This project is currently a frontend-first storefront prototype.
-
-  Included now:
-
-- browsing products
-- cart and wishlist state
-- demo checkout and confirmation flow
-- static catalog and review content
-
-  Not included yet:
-
-- r-eal payment processing
-- backend order storage
-- inventory syncing
-- authentication
-- admin dashboard
-- Notes
-- The app uses HashRouter, which makes it easy to deploy on GitHub Pages.
-- Checkout is currently a demo flow and does not process real payments.
-- Product/catalog data is stored locally in the app.
-  
-- Future Improvements:
-  
-- Integrate Stripe or PayPal
-- Persist cart and wishlist across sessions
-- Add product images and richer media
-- Connect checkout to a backend or serverless API
-- Add email confirmations and order management
-- Improve accessibility and test coverage
+    config/
+    middleware/
+    models/
+    routes/
+frontend/
+  package.json
+  src/
+    components/
+    pages/
+    store/
+```

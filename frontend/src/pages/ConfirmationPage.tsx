@@ -98,7 +98,26 @@ export default function ConfirmationPage() {
             </div>
             <div>
               <div className="text-xs text-brand-muted dark:text-brand-muted-dark mb-0.5">Fulfillment</div>
-              <div className="text-sm text-brand-text dark:text-brand-text-dark">{order.fulfillment === "shipping" ? "📦 Shipping" : "🏪 Pickup"}</div>
+              <div className="text-sm text-brand-text dark:text-brand-text-dark inline-flex items-center gap-1.5">
+                {order.fulfillment === "shipping" ? (
+                  <>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 8.5L12 4l9 4.5-9 4.5-9-4.5z" />
+                      <path d="M3 8.5V16l9 4 9-4V8.5" />
+                    </svg>
+                    Shipping
+                  </>
+                ) : (
+                  <>
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M3 10l9-6 9 6" />
+                      <path d="M5 10v9h14v-9" />
+                      <path d="M9 19v-5h6v5" />
+                    </svg>
+                    Pickup
+                  </>
+                )}
+              </div>
             </div>
             {order.address && (
               <div>
@@ -119,7 +138,7 @@ export default function ConfirmationPage() {
         <div className="flex gap-3">
           <Link
             className="flex-1 px-4 py-2.5 rounded-xl border border-brand-line dark:border-brand-line-dark text-sm text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-center"
-            to="/"
+            to="/shop"
           >
             ← Back to Shop
           </Link>
@@ -128,12 +147,23 @@ export default function ConfirmationPage() {
             onClick={() => window.print()}
             type="button"
           >
-            🖨️ Print Receipt
+            <span className="inline-flex items-center justify-center gap-1.5">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 8V4h10v4" />
+                <path d="M6 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1" />
+                <path d="M7 14h10v6H7z" />
+              </svg>
+              Print Receipt
+            </span>
           </button>
         </div>
 
-        <p className="text-center text-[10px] text-brand-muted dark:text-brand-muted-dark">
-          🔧 Demo mode — connect Stripe or PayPal to process real payments.
+        <p className="text-center text-[10px] text-brand-muted dark:text-brand-muted-dark inline-flex items-center justify-center gap-1.5">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14.7 6.3l3 3" />
+            <path d="M3 21l6.5-1.5L20 9a2.1 2.1 0 0 0-3-3L6.5 16.5 5 23z" />
+          </svg>
+          Demo mode - connect Stripe or PayPal to process real payments.
         </p>
       </main>
       <Footer />

@@ -1,20 +1,36 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useStore } from "../store/StoreContext";
 
 export default function Header() {
   const { totalQty, wishlist, setCartOpen, setWishlistOpen, hideToast } = useStore();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const openCart = () => { hideToast(); setCartOpen(true); setMobileOpen(false); };
   const openWishlist = () => { hideToast(); setWishlistOpen(true); setMobileOpen(false); };
+  const goToCollection = () => {
+    const scrollToCollection = () => {
+      document.getElementById("collection")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    if (location.pathname !== "/shop") {
+      navigate("/shop");
+      setTimeout(scrollToCollection, 50);
+    } else {
+      scrollToCollection();
+    }
+
+    setMobileOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-20 w-full bg-brand-bg/95 dark:bg-brand-bg-dark/95 backdrop-blur-md border-b border-brand-line dark:border-brand-line-dark">
       <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between gap-6">
 
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 no-underline">
+        <Link to="/shop" className="flex items-center gap-2.5 flex-shrink-0 no-underline">
           <img
             src={`${import.meta.env.BASE_URL}logo.png`}
             alt="Aromamor logo"
@@ -30,12 +46,13 @@ export default function Header() {
 
         {/* Center nav — desktop */}
         <nav className="hidden md:flex items-center text-sm text-brand-muted dark:text-brand-muted-dark">
-          <Link
-            to="/"
+          <button
+            type="button"
+            onClick={goToCollection}
             className="px-3 py-1.5 text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition"
           >
             Shop
-          </Link>
+          </button>
           <span className="text-brand-line dark:text-brand-line-dark select-none">|</span>
           <Link
             to="/about"
@@ -105,7 +122,7 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="absolute top-full left-0 w-full bg-brand-card dark:bg-brand-card-dark border-b border-brand-line dark:border-brand-line-dark shadow-lg flex flex-col py-2 md:hidden">
-          <a className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" href="/#collection" onClick={() => setMobileOpen(false)}>Shop</a>
+          <button className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition text-left" onClick={goToCollection} type="button">Shop</button>
           <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/about" onClick={() => setMobileOpen(false)}>About Us</Link>
           <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/reviews" onClick={() => setMobileOpen(false)}>Reviews</Link>
           <Link className="px-6 py-3 text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition" to="/checkout" onClick={() => setMobileOpen(false)}>Checkout</Link>
