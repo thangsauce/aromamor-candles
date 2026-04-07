@@ -117,7 +117,6 @@ export default function CartDrawer() {
             Checkout
           </Link>
         </div>
-        <p className="text-[10px] text-brand-muted dark:text-brand-muted-dark text-center">(Demo cart)</p>
       </div>
     </aside>
   );

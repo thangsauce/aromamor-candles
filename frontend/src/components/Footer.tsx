@@ -24,6 +24,8 @@ export default function Footer() {
         <div className="flex flex-col gap-3">
           <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Shop</div>
           <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/shop">All Candles</Link>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/about">About Us</Link>
+          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/reviews">Reviews</Link>
         </div>
 
         {/* Col 3: Support */}
@@ -31,8 +33,6 @@ export default function Footer() {
           <div className="text-xs font-medium uppercase tracking-widest text-brand-muted dark:text-brand-muted-dark mb-1">Support</div>
           <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/faq">FAQ</Link>
           <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/shipping-returns">Shipping &amp; Returns</Link>
-          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/about">About Us</Link>
-          <Link className="text-sm text-brand-text dark:text-brand-text-dark hover:text-brand-accent dark:hover:text-brand-accent-dark transition" to="/reviews">Reviews</Link>
         </div>
 
         {/* Col 4: Contact */}

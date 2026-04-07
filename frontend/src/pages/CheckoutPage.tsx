@@ -137,9 +137,6 @@ export default function CheckoutPage() {
               </>
             )}
 
-            <p className="text-[10px] text-brand-muted dark:text-brand-muted-dark mt-4">
-              Tip: You can edit quantities here before placing your order.
-            </p>
           </section>
 
           {/* Customer Details Form */}
@@ -179,11 +176,10 @@ export default function CheckoutPage() {
                   Back
                 </Link>
                 <button className="flex-1 px-4 py-2.5 rounded-xl bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark font-semibold text-sm hover:opacity-90 transition" type="submit">
-                  Place Order (Demo)
+                  Place Order
                 </button>
               </div>
 
-              <p className="text-[10px] text-brand-muted dark:text-brand-muted-dark text-center">Demo checkout. Connect Stripe/PayPal later.</p>
             </form>
           </section>
         </div>
