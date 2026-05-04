@@ -19,13 +19,17 @@ api.interceptors.request.use((config) => {
 });
 
 // ── Response interceptor ─────────────────────────────────────────────────────
-// Handle 401 (unauthorized) globally — redirect to login
+// Handle 401 (unauthorized) globally.
+// Keep public storefront routes accessible; only force auth on dashboards.
 api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem("aromamor_token");
-      window.location.hash = "#/login";
+      const currentHash = window.location.hash || "#/";
+      if (currentHash.startsWith("#/admin") || currentHash.startsWith("#/dashboard")) {
+        window.location.hash = "#/login";
+      }
     }
     return Promise.reject(error);
   }

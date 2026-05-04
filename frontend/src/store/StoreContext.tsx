@@ -19,6 +19,8 @@ interface StoreContextType {
   setCartOpen: (open: boolean) => void;
   wishlistOpen: boolean;
   setWishlistOpen: (open: boolean) => void;
+  searchOpen: boolean;
+  setSearchOpen: (open: boolean) => void;
   toast: { visible: boolean; title: string; body: string };
   showToast: (title: string, body: string) => void;
   hideToast: () => void;
@@ -33,6 +35,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const wishlistHook = useWishlist();
   const [cartOpen, setCartOpen] = useState(false);
   const [wishlistOpen, setWishlistOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [toast, setToast] = useState({ visible: false, title: "", body: "" });
 
   const showToast = (title: string, body: string) => {
@@ -58,6 +61,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         setCartOpen,
         wishlistOpen,
         setWishlistOpen,
+        searchOpen,
+        setSearchOpen,
         toast,
         showToast,
         hideToast,
