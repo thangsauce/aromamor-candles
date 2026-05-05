@@ -13,7 +13,7 @@ interface AuthContextValue {
   user: AuthUser | null;
   loading: boolean;
   login: (username: string, password: string) => Promise<void>;
-  register: (username: string, password: string, role: UserRole) => Promise<void>;
+  register: (username: string, password: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -49,8 +49,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(data.user);
   }
 
-  async function register(username: string, password: string, role: UserRole) {
-    const { data } = await api.post("/auth/register", { username, password, role });
+  async function register(username: string, password: string) {
+    const { data } = await api.post("/auth/register", { username, password, role: "user" });
     localStorage.setItem("aromamor_token", data.token);
     setUser(data.user);
   }

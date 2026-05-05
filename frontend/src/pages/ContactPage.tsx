@@ -11,7 +11,7 @@ export default function ContactPage() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1 bg-[oklch(0.95_0.01_82)]">
-        <section className="mx-auto max-w-[1700px] px-4 pb-12 pt-24 sm:px-6 lg:px-10">
+        <section className="mx-auto max-w-[1700px] px-4 pb-12 pt-16 sm:px-6 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[1.02fr_1fr] lg:items-stretch">
             <div className="grid gap-14 bg-[oklch(0.95_0.01_82)] p-4 sm:p-8 lg:gap-16 lg:p-10">
               <div className="grid gap-4 sm:grid-cols-[220px_1fr] sm:gap-10">
@@ -54,9 +54,9 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden bg-[oklch(0.92_0.01_82)]">
+            <div className="overflow-hidden rounded-[28px] bg-[oklch(0.92_0.01_82)]">
               <img
-                src={`${import.meta.env.BASE_URL}contact_picture.png`}
+                src={`${import.meta.env.BASE_URL}visit_us.png`}
                 alt="Editorial portrait"
                 className="h-full min-h-[620px] w-full object-cover"
               />

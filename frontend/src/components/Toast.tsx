@@ -8,12 +8,12 @@ export default function Toast() {
 
   return (
     <div
-      className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[340px] max-w-[calc(100vw-2rem)] bg-brand-card dark:bg-brand-card-dark border border-brand-line dark:border-brand-line-dark rounded-2xl shadow-xl p-4 flex flex-col gap-3"
+      className="fixed bottom-5 left-1/2 z-50 flex w-[280px] max-w-[calc(100vw-1.5rem)] -translate-x-1/2 flex-col gap-2 rounded-xl border border-brand-line bg-brand-card p-3 shadow-xl dark:border-brand-line-dark dark:bg-brand-card-dark sm:bottom-6 sm:w-[340px] sm:max-w-[calc(100vw-2rem)] sm:gap-3 sm:rounded-2xl sm:p-4"
       aria-live="polite"
       aria-atomic="true"
     >
       <div className="flex items-start justify-between gap-2">
-        <b className="text-sm text-brand-text dark:text-brand-text-dark">{toast.title}</b>
+        <b className="text-xs text-brand-text dark:text-brand-text-dark sm:text-sm">{toast.title}</b>
         <button
           className="text-brand-muted dark:text-brand-muted-dark hover:text-brand-text dark:hover:text-brand-text-dark transition text-base leading-none"
           onClick={hideToast}
@@ -25,17 +25,17 @@ export default function Toast() {
           </svg>
         </button>
       </div>
-      <div className="text-xs text-brand-muted dark:text-brand-muted-dark">{toast.body}</div>
+      <div className="text-[11px] text-brand-muted dark:text-brand-muted-dark sm:text-xs">{toast.body}</div>
       <div className="flex gap-2">
         <button
-          className="flex-1 px-3 py-2 rounded-xl border border-brand-line dark:border-brand-line-dark text-sm text-brand-text dark:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition"
+          className="flex-1 rounded-lg border border-brand-line px-2.5 py-1.5 text-xs text-brand-text transition hover:bg-brand-line dark:border-brand-line-dark dark:text-brand-text-dark dark:hover:bg-brand-line-dark sm:rounded-xl sm:px-3 sm:py-2 sm:text-sm"
           onClick={() => { hideToast(); setCartOpen(true); }}
           type="button"
         >
           View Cart
         </button>
         <Link
-          className="flex-1 px-3 py-2 rounded-xl bg-brand-accent dark:bg-brand-accent-dark text-white dark:text-brand-bg-dark text-sm font-semibold text-center hover:opacity-90 transition"
+          className="flex-1 rounded-lg bg-brand-accent px-2.5 py-1.5 text-center text-xs font-semibold text-white transition hover:opacity-90 dark:bg-brand-accent-dark dark:text-brand-bg-dark sm:rounded-xl sm:px-3 sm:py-2 sm:text-sm"
           to="/checkout"
           onClick={hideToast}
         >
