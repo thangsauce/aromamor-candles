@@ -10,14 +10,14 @@ export default function CartDrawer() {
 
   return (
     <aside
-      className={`fixed top-0 right-0 h-full w-[380px] max-w-full z-40 flex flex-col bg-brand-card dark:bg-brand-card-dark border-l border-brand-line dark:border-brand-line-dark shadow-2xl transition-transform duration-300 ${cartOpen ? "translate-x-0" : "translate-x-full"}`}
+      className={`fixed top-0 right-0 z-40 flex h-full w-[75vw] max-w-[380px] flex-col overflow-hidden rounded-l-[40px] border-l border-brand-line bg-brand-card/96 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:w-[380px] dark:border-brand-line-dark dark:bg-brand-card-dark/96 ${cartOpen ? "translate-x-0" : "translate-x-full"}`}
       role="dialog"
       aria-modal
       aria-label="Shopping cart"
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-brand-line dark:border-brand-line-dark">
-        <h3 className="font-semibold text-brand-text dark:text-brand-text-dark">Your Cart</h3>
+        <h3 className="font-semibold text-brand-text dark:text-brand-text-dark">Cart</h3>
         <button
           className="p-2 rounded-lg text-brand-muted dark:text-brand-muted-dark hover:text-brand-text dark:hover:text-brand-text-dark hover:bg-brand-line dark:hover:bg-brand-line-dark transition"
           onClick={() => setCartOpen(false)}

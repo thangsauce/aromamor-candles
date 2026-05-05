@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import type { Location } from "react-router-dom";
 import { useAuth } from "../store/AuthContext";
 
 export default function LoginPage() {
   const { user, login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const backgroundLocation =
+    (location.state as { backgroundLocation?: Location } | null)?.backgroundLocation;
+  const hasBackground = Boolean(backgroundLocation);
+  const modalBackgroundLocation = backgroundLocation ?? location;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -38,14 +44,35 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen grid place-items-center px-4 bg-brand-bg dark:bg-brand-bg-dark">
-      <form
-        onSubmit={onSubmit}
-        className="w-full max-w-md rounded-2xl border border-brand-line dark:border-brand-line-dark bg-brand-card dark:bg-brand-card-dark p-6 flex flex-col gap-4"
-      >
-        <h1 className="text-2xl text-brand-text dark:text-brand-text-dark" style={{ fontFamily: "var(--font-display)" }}>
-          Login
-        </h1>
+    <main className="fixed inset-0 z-50 grid place-items-center px-4">
+      <div className="absolute inset-0 bg-[oklch(0.15_0.02_60/.42)] backdrop-blur-sm" />
+      <div className="relative w-full max-w-md">
+        <form
+          onSubmit={onSubmit}
+          className="w-full rounded-2xl border border-brand-line dark:border-brand-line-dark bg-brand-card dark:bg-brand-card-dark p-6 flex flex-col gap-4 shadow-[0_24px_60px_oklch(0.2_0.02_72/.28)]"
+        >
+          <div className="flex justify-end">
+            <button
+              type="button"
+              onClick={() => {
+                if (backgroundLocation) {
+                  navigate(backgroundLocation, { replace: true });
+                } else {
+                  navigate("/", { replace: true });
+                }
+              }}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-brand-line text-brand-muted transition hover:bg-brand-line"
+              aria-label="Close login"
+            >
+              ×
+            </button>
+          </div>
+          <p className="text-center text-4xl text-brand-text dark:text-brand-text-dark" style={{ fontFamily: "var(--font-display)" }}>
+            Aromamor
+          </p>
+          <h1 className="text-2xl text-brand-text dark:text-brand-text-dark" style={{ fontFamily: "var(--font-display)" }}>
+            Login
+          </h1>
 
         <label className="text-sm text-brand-text dark:text-brand-text-dark flex flex-col gap-1">
           Username
@@ -78,10 +105,19 @@ export default function LoginPage() {
           {submitting ? "Signing in..." : "Sign in"}
         </button>
 
-        <p className="text-sm text-brand-muted dark:text-brand-muted-dark">
-          New here? <Link to="/register" className="underline">Create an account</Link>
-        </p>
-      </form>
+          <p className="text-sm text-brand-muted dark:text-brand-muted-dark">
+            New here?{" "}
+            <Link
+              to="/register"
+              replace={hasBackground}
+              state={{ backgroundLocation: modalBackgroundLocation }}
+              className="underline"
+            >
+              Create an account
+            </Link>
+          </p>
+        </form>
+      </div>
     </main>
   );
 }

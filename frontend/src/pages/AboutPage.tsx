@@ -2,44 +2,6 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-const VALUES = [
-  {
-    title: "Clean Ingredients",
-    desc: "100% soy wax blend, phthalate-free fragrance oils, and cotton wicks. Nothing that shouldn't be in your home.",
-  },
-  {
-    title: "Hand-Poured",
-    desc: "Every candle is poured in small batches by hand. No factories, no shortcuts — just care in every pour.",
-  },
-  {
-    title: "Travel-Inspired",
-    desc: "Our scents are rooted in real places and real memories. Each one tells a story.",
-  },
-  {
-    title: "Community First",
-    desc: "We're a small business and every order means the world to us. Your support keeps us going.",
-  },
-];
-
-const CARE_TIPS = [
-  {
-    title: "First Burn",
-    desc: "Always burn until the wax pool reaches the edge of the jar on the first use. This prevents tunneling and maximizes your burn time.",
-  },
-  {
-    title: "Trim Your Wick",
-    desc: "Trim the wick to ¼ inch before every burn. This keeps the flame clean and your scent true.",
-  },
-  {
-    title: "Burn Time",
-    desc: "Never burn for more than 4 hours at a time. Let the candle cool for 2 hours before relighting.",
-  },
-  {
-    title: "Safety First",
-    desc: "Keep away from drafts, children, and pets. Never leave a burning candle unattended.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -47,19 +9,26 @@ export default function AboutPage() {
       <main className="flex-1">
 
         {/* Hero */}
-        <section className="relative overflow-hidden border-b border-brand-line dark:border-brand-line-dark">
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-amber-50 to-stone-100 dark:from-brand-bg-dark dark:via-stone-900 dark:to-brand-bg-dark" />
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-amber-100/50 dark:bg-amber-900/10 blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-          <div className="relative max-w-[1200px] mx-auto px-6 py-20 md:py-28 flex flex-col items-center text-center gap-5">
-            <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">Our Story</p>
+        <section className="relative h-screen min-h-[100svh] overflow-hidden">
+          <img
+            src={`${import.meta.env.BASE_URL}our_story.png`}
+            alt="Aromamor interior scene with candles"
+            className="absolute inset-0 h-full w-full object-cover object-[0%_0%] md:object-[0%_8%]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.19_0.035_48/.78),oklch(0.2_0.03_48/.38)_44%,oklch(0.22_0.03_48/.04)_78%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(180deg,oklch(0.955_0.018_80/0),oklch(0.955_0.018_80))]" />
+          <div className="relative mx-auto flex h-full max-w-[1200px] flex-col items-start justify-start gap-5 px-6 pt-36 pb-12 text-left md:pl-40 md:pt-44 md:pb-14">
+            <p className="text-xs tracking-[0.2em] uppercase text-[oklch(0.93_0.02_80)]">Our Story</p>
             <h1
-              className="text-5xl md:text-6xl text-brand-text dark:text-brand-text-dark leading-[1.1] max-w-2xl"
+              className="text-5xl md:text-6xl text-[oklch(0.98_0.01_80)] leading-[1.1] max-w-2xl"
               style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
             >
-              Crafted with Care,{" "}
-              <em style={{ fontStyle: "italic", fontWeight: 300 }}>Inspired by Travel</em>
+              Crafted with{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 300 }}>Care</em>,{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 300 }}>Inspired</em> by{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 300 }}>Travel</em>
             </h1>
-            <p className="text-brand-muted dark:text-brand-muted-dark max-w-md leading-relaxed">
+            <p className="text-[oklch(0.92_0.01_80)] max-w-md leading-relaxed">
               Aromamor was born from a love of travel and the belief that a single scent can transport you anywhere in the world.
             </p>
           </div>
@@ -68,90 +37,136 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto px-6 py-14 flex flex-col gap-16">
 
           {/* Rooted in Ritual */}
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="h-64 md:h-80 rounded-2xl bg-gradient-to-br from-amber-100 to-stone-200 dark:from-amber-900/30 dark:to-stone-800 flex items-center justify-center border border-brand-line dark:border-brand-line-dark overflow-hidden">
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div className="rounded-2xl bg-gradient-to-br from-amber-100 to-stone-200 dark:from-amber-900/30 dark:to-stone-800 flex items-center justify-center border border-brand-line dark:border-brand-line-dark overflow-hidden">
               <img
-                src={`${import.meta.env.BASE_URL}The Founder.JPG`}
+                src={`${import.meta.env.BASE_URL}founder.png`}
                 alt="Margarita Linares, Founder"
-                className="w-full h-full object-cover object-[center_25%]"
+                className="h-auto w-full object-contain object-center"
               />
             </div>
-            <div className="flex flex-col gap-4">
-              <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">The Founder</p>
+            <div className="flex flex-col gap-4 md:sticky md:top-28 md:self-start">
+              <p className="text-sm tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">The Founder</p>
               <h2
-                className="text-3xl text-brand-text dark:text-brand-text-dark"
+                className="text-4xl text-brand-text dark:text-brand-text-dark md:text-[2.7rem]"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
               >
                 Rooted in Ritual &amp; Nature
               </h2>
-              <p className="text-sm text-brand-muted dark:text-brand-muted-dark leading-relaxed">
+              <p className="text-base leading-relaxed text-brand-muted dark:text-brand-muted-dark md:text-lg">
                 Every candle in our collection is inspired by a place I've dreamed of — or been lucky enough to visit. I started Aromamor because I wanted a way to hold onto those memories, to bring a little piece of the world into my home.
               </p>
-              <p className="text-sm text-brand-muted dark:text-brand-muted-dark leading-relaxed">
+              <p className="text-base leading-relaxed text-brand-muted dark:text-brand-muted-dark md:text-lg">
                 Each scent is carefully crafted to capture not just a location, but a feeling — the warmth of a Parisian café on a rainy afternoon, the salt air of the Amalfi Coast at sunrise, the calm of a first-class lounge before a big trip.
               </p>
-              <p className="text-sm text-brand-muted dark:text-brand-muted-dark leading-relaxed">
+              <p className="text-base leading-relaxed text-brand-muted dark:text-brand-muted-dark md:text-lg">
                 I hand-pour every candle in small batches using a clean soy blend, and I obsess over every note in every fragrance until it feels just right. This is more than a candle brand — it's a passport for your senses.
               </p>
-              <p className="text-sm font-medium text-brand-accent dark:text-brand-accent-dark" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}>— Margarita Linares</p>
+              <p className="text-base font-medium text-brand-accent dark:text-brand-accent-dark md:text-lg" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}>— Margarita Linares</p>
             </div>
           </section>
 
           {/* Our Promise */}
-          <section>
-            <div className="text-center mb-8">
-              <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark mb-2">What we stand for</p>
-              <h2
-                className="text-3xl text-brand-text dark:text-brand-text-dark"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-              >
-                Our Promise
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-              {VALUES.map((v) => (
-                <div key={v.title} className="flex flex-col gap-3 p-6 rounded-2xl bg-brand-card dark:bg-brand-card-dark border border-brand-line dark:border-brand-line-dark">
-                  <div className="w-8 h-0.5 bg-brand-accent dark:bg-brand-accent-dark rounded-full" />
-                  <h3
-                    className="text-base text-brand-text dark:text-brand-text-dark"
-                    style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-                  >
-                    {v.title}
-                  </h3>
-                  <p className="text-xs text-brand-muted dark:text-brand-muted-dark leading-relaxed">{v.desc}</p>
-                </div>
-              ))}
+          <section className="grid grid-cols-1 gap-8 md:grid-cols-[0.98fr_1.02fr] md:items-start">
+            <div className="flex flex-col gap-4 md:sticky md:top-28 md:self-start">
+                <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">
+                  Our Promise
+                </p>
+                <h2
+                  className="text-3xl text-brand-text dark:text-brand-text-dark md:text-4xl"
+                  style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+                >
+                  What we stand for
+                </h2>
+                <p className="max-w-lg text-sm leading-relaxed text-brand-muted dark:text-brand-muted-dark md:text-base">
+                  Travel, community, and craftsmanship shape every candle we pour. From first light to final burn, each scent is designed to feel personal, comforting, and made with real care.
+                </p>
+                <Link
+                  to="/candle-care"
+                  className="w-fit text-sm font-semibold uppercase tracking-[0.16em] text-brand-accent transition hover:text-brand-accent-dark dark:text-brand-accent-dark dark:hover:text-brand-accent"
+                >
+                See candle care
+                </Link>
+              </div>
+            <div className="group rounded-[28px] border border-brand-line dark:border-brand-line-dark overflow-hidden bg-brand-card dark:bg-brand-card-dark shadow-[0_24px_54px_oklch(0.2_0.02_72/.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_72px_oklch(0.2_0.02_72/.14)]">
+              <div className="overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}our_story1.png`}
+                  alt="Aromamor promise image"
+                  className="h-[360px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] md:h-[460px]"
+                />
+              </div>
             </div>
           </section>
 
-          {/* Candle Care */}
-          <section>
-            <div className="text-center mb-8">
-              <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark mb-2">Care guide</p>
+          {/* Travel Inspired */}
+          <section className="grid grid-cols-1 gap-8 md:grid-cols-[1.02fr_0.98fr] md:items-center">
+            <div className="group rounded-[28px] border border-brand-line dark:border-brand-line-dark overflow-hidden bg-brand-card dark:bg-brand-card-dark shadow-[0_24px_54px_oklch(0.2_0.02_72/.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_72px_oklch(0.2_0.02_72/.14)]">
+              <div className="overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}out_story2.png`}
+                  alt="Travel-inspired candle moment on calm water"
+                  className="h-[360px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] md:h-[460px]"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 md:sticky md:top-28 md:self-start md:pl-4">
+              <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">
+                Scent &amp; Memory
+              </p>
               <h2
-                className="text-3xl text-brand-text dark:text-brand-text-dark"
+                className="text-3xl text-brand-text dark:text-brand-text-dark md:text-4xl"
                 style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
               >
-                Candle Care Tips
+                Travel-Inspired
               </h2>
+              <p className="max-w-lg text-sm leading-relaxed text-brand-muted dark:text-brand-muted-dark md:text-base">
+                Our scents are rooted in real places and real memories. Each one tells a story. Some are inspired by quiet mornings in coastal towns, others by warm evenings in city cafes and moments between departures. We build each fragrance to capture a feeling you can return to, not just a note you can name.
+              </p>
+              <Link
+                to="/shop"
+                className="w-fit text-sm font-semibold uppercase tracking-[0.16em] text-brand-accent transition hover:text-brand-accent-dark dark:text-brand-accent-dark dark:hover:text-brand-accent"
+              >
+                See our collections
+              </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {CARE_TIPS.map((tip) => (
-                <div key={tip.title} className="flex gap-4 p-6 rounded-2xl bg-brand-card dark:bg-brand-card-dark border border-brand-line dark:border-brand-line-dark">
-                  <div className="w-8 h-8 flex-shrink-0 rounded-full bg-brand-accent/10 dark:bg-brand-accent-dark/10 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-brand-accent dark:bg-brand-accent-dark" />
-                  </div>
-                  <div>
-                    <h3
-                      className="text-base text-brand-text dark:text-brand-text-dark mb-1"
-                      style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-                    >
-                      {tip.title}
-                    </h3>
-                    <p className="text-sm text-brand-muted dark:text-brand-muted-dark leading-relaxed">{tip.desc}</p>
-                  </div>
-                </div>
-              ))}
+          </section>
+
+          {/* Community First */}
+          <section className="grid grid-cols-1 gap-8 md:grid-cols-[0.98fr_1.02fr] md:items-start">
+            <div className="flex flex-col gap-4 md:sticky md:top-28 md:self-start">
+              <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">
+                Our Community
+              </p>
+              <h2
+                className="text-3xl text-brand-text dark:text-brand-text-dark md:text-4xl"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+              >
+                Community First
+              </h2>
+              <div className="max-w-lg space-y-3 text-sm leading-relaxed text-brand-muted dark:text-brand-muted-dark md:text-base">
+                <p>
+                  Choosing Aromamor means more than just a candle. You&apos;re supporting a lifelong passion, a personal journey, and a maker who pours their heart into every single piece.
+                </p>
+                <p>
+                  We&apos;re a small business and every order means the world to us. Your support keeps us going.
+                </p>
+              </div>
+              <Link
+                to="/reviews"
+                className="w-fit text-xs font-semibold uppercase tracking-[0.18em] text-brand-accent transition hover:text-brand-accent-dark dark:text-brand-accent-dark dark:hover:text-brand-accent"
+              >
+                See customer reviews
+              </Link>
+            </div>
+            <div className="group rounded-[28px] border border-brand-line dark:border-brand-line-dark overflow-hidden bg-brand-card dark:bg-brand-card-dark shadow-[0_24px_54px_oklch(0.2_0.02_72/.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_30px_72px_oklch(0.2_0.02_72/.14)]">
+              <div className="overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}our_story3.png`}
+                  alt="Community candle exchange moment"
+                  className="h-[360px] w-full object-cover object-center transition duration-700 group-hover:scale-[1.03] md:h-[460px]"
+                />
+              </div>
             </div>
           </section>
 

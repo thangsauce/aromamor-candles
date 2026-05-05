@@ -29,17 +29,14 @@ export default function WishlistDrawer() {
 
   return (
     <aside
-      className={`fixed top-0 right-0 h-full w-[380px] max-w-full z-40 flex flex-col bg-brand-card dark:bg-brand-card-dark border-l border-brand-line dark:border-brand-line-dark shadow-2xl transition-transform duration-300 ${wishlistOpen ? "translate-x-0" : "translate-x-full"}`}
+      className={`fixed top-0 right-0 z-40 flex h-full w-[380px] max-w-full flex-col overflow-hidden rounded-l-[40px] border-l border-brand-line bg-brand-card shadow-2xl transition-transform duration-300 dark:border-brand-line-dark dark:bg-brand-card-dark ${wishlistOpen ? "translate-x-0" : "translate-x-full"}`}
       role="dialog"
       aria-modal
       aria-label="Wishlist"
     >
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-brand-line dark:border-brand-line-dark">
-        <h3 className="font-semibold text-brand-text dark:text-brand-text-dark inline-flex items-center gap-2">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.9">
-            <path d="M12 20.5l-1.1-1C6.2 15.2 3 12.3 3 8.8A4.8 4.8 0 0 1 7.8 4c1.6 0 3.1.8 4.2 2.1A5.5 5.5 0 0 1 16.2 4 4.8 4.8 0 0 1 21 8.8c0 3.5-3.2 6.4-7.9 10.7l-1.1 1z" />
-          </svg>
+        <h3 className="font-semibold text-brand-text dark:text-brand-text-dark">
           Wishlist
         </h3>
         <button
@@ -59,10 +56,7 @@ export default function WishlistDrawer() {
         {wishlist.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full gap-2 text-center">
             <p className="text-brand-muted dark:text-brand-muted-dark">No saved items yet.</p>
-            <p className="text-xs text-brand-muted dark:text-brand-muted-dark inline-flex items-center gap-1.5">
-              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.9">
-                <path d="M12 20.5l-1.1-1C6.2 15.2 3 12.3 3 8.8A4.8 4.8 0 0 1 7.8 4c1.6 0 3.1.8 4.2 2.1A5.5 5.5 0 0 1 16.2 4 4.8 4.8 0 0 1 21 8.8c0 3.5-3.2 6.4-7.9 10.7l-1.1 1z" />
-              </svg>
+            <p className="text-xs text-brand-muted dark:text-brand-muted-dark">
               Tap the wishlist icon on any candle to save it
             </p>
           </div>

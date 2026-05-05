@@ -44,7 +44,7 @@ export default function SearchDrawer() {
 
   return (
     <aside
-      className={`fixed top-0 right-0 z-40 flex h-full w-[380px] max-w-full flex-col border-l border-brand-line bg-brand-card shadow-2xl transition-transform duration-300 dark:border-brand-line-dark dark:bg-brand-card-dark ${
+      className={`fixed top-0 right-0 z-40 flex h-full w-[75vw] max-w-[380px] flex-col overflow-hidden rounded-l-[40px] border-l border-brand-line bg-brand-card/96 shadow-2xl backdrop-blur-xl transition-transform duration-300 md:w-[380px] dark:border-brand-line-dark dark:bg-brand-card-dark/96 ${
         searchOpen ? "translate-x-0" : "translate-x-full"
       }`}
       role="dialog"

@@ -13,7 +13,7 @@ export default function Overlay() {
 
   return (
     <div
-      className={`fixed inset-0 z-30 bg-black/50 transition-opacity duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      className={`fixed inset-0 z-30 bg-[oklch(0.14_0.015_40/.24)] backdrop-blur-sm transition-[opacity,backdrop-filter] duration-300 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none backdrop-blur-0"}`}
       onClick={() => {
         if (searchOpen) setSearchOpen(false);
         else if (wishlistOpen) setWishlistOpen(false);

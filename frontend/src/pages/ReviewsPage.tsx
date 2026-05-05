@@ -60,19 +60,30 @@ export default function ReviewsPage() {
       <main className="flex-1">
 
         {/* Hero */}
-        <section className="relative overflow-hidden border-b border-brand-line dark:border-brand-line-dark">
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-amber-50 to-stone-100 dark:from-brand-bg-dark dark:via-stone-900 dark:to-brand-bg-dark" />
-          <div className="relative max-w-[1200px] mx-auto px-6 py-16 flex flex-col items-start gap-3">
-            <p className="text-xs tracking-[0.2em] uppercase text-brand-muted dark:text-brand-muted-dark">Customer Reviews</p>
+        <section className="relative overflow-hidden bg-[oklch(0.22_0.034_48)] text-[oklch(0.96_0.014_82)]">
+          <img
+            src={`${import.meta.env.BASE_URL}reviews_hero.png`}
+            alt="Aromamor interior scene with candles"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_0%] md:object-[50%_10%]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.19_0.035_48/.78),oklch(0.2_0.03_48/.38)_44%,oklch(0.22_0.03_48/.04)_78%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(180deg,oklch(0.955_0.018_80/0),oklch(0.955_0.018_80))]" />
+          <div className="relative mx-auto flex min-h-screen max-w-[1320px] items-end px-6 pb-32 pt-32 md:pb-40">
+            <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[oklch(0.82_0.098_72)]">
+              Customer Reviews
+            </p>
             <h1
-              className="text-4xl md:text-5xl text-brand-text dark:text-brand-text-dark"
+              className="mt-5 max-w-4xl text-5xl leading-[0.94] md:text-7xl"
               style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
             >
-              What travelers are saying
+              What <em style={{ fontStyle: "italic", fontWeight: 300 }}>travelers</em> are{" "}
+              <em style={{ fontStyle: "italic", fontWeight: 300 }}>saying</em>
             </h1>
-            <p className="text-brand-muted dark:text-brand-muted-dark max-w-md text-sm">
+            <p className="mt-6 max-w-xl text-xl leading-relaxed text-[oklch(0.91_0.018_82/.88)]">
               Real reviews from real customers. Share your experience with Aromamor.
             </p>
+            </div>
           </div>
         </section>
 
