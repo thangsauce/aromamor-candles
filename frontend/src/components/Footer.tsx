@@ -19,6 +19,10 @@ export default function Footer() {
       const progress =
         (viewportHeight - rect.top) / (viewportHeight + rect.height);
       const clamped = Math.max(0, Math.min(1, progress));
+      const footerProgress = Math.max(
+        0,
+        Math.min(1, (viewportHeight - rect.top) / Math.max(1, rect.height))
+      );
 
       // Downward drift in this section; scrolling back up returns it clearly upward.
       const availableUp = card.offsetTop;
@@ -27,8 +31,8 @@ export default function Footer() {
       const isMobile = window.innerWidth < 768;
       const maxDown = isMobile
         ? Math.max(availableDown - 30, 0)
-        : Math.max(availableDown - 42, 0);
-      const desired = Math.min(1, clamped * (isMobile ? 3.5 : 1.2)) * maxDown;
+        : Math.max(availableDown - 18, 0);
+      const desired = (isMobile ? Math.min(1, clamped * 3.5) : footerProgress) * maxDown;
       const minUp = Math.max(-availableUp, 0);
       const bounded = Math.max(minUp, Math.min(maxDown, desired));
 
@@ -58,7 +62,7 @@ export default function Footer() {
   return (
     <footer
       ref={sectionRef}
-      className="relative mt-auto min-h-[420px] overflow-hidden px-3 pb-14 pt-20 sm:min-h-[900px] sm:px-6 sm:pb-[4.5rem] sm:pt-[6.5rem]"
+      className="relative mt-auto min-h-[420px] overflow-hidden px-3 pb-14 pt-20 sm:min-h-[900px] sm:px-6 sm:pb-[4.5rem] sm:pt-[4rem]"
     >
       <img
         src={`${import.meta.env.BASE_URL}behind_footer.png`}

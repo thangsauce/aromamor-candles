@@ -554,7 +554,7 @@ export default function Header() {
               Account
             </Link>
             <button
-              className="col-span-2 flex items-center justify-between px-6 py-3 text-left text-sm uppercase tracking-[0.14em] text-brand-text transition hover:bg-brand-line dark:text-brand-text-dark dark:hover:bg-brand-line-dark"
+              className="col-span-2 flex items-center gap-2 px-6 py-3 text-left text-sm uppercase tracking-[0.14em] text-brand-text transition hover:bg-brand-line dark:text-brand-text-dark dark:hover:bg-brand-line-dark"
               onClick={openWishlist}
               type="button"
             >
